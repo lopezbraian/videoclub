@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: #032541;
+  height: 100%;
+  padding: 20px;
+  border-radius:10px;
+  margin-bottom: 25px;
+  &__nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      margin-right: 2rem;
+      padding: 1rem;
+      border-radius:.5rem ;
+      background-color: var(--tmdbDarkBlue);
+      a {
+        text-decoration: none;
+        font-size: 1.7rem;
+        color: white;
+      }
+    }
+  }
+  &__nav-user {
+    align-self: stretch;
+    position: relative;
+    button {
+      outline: none;
+      border: none;
+      height: 100%;
+      border-radius: 5px;
+      width: 80px;
+    }
+    button::after {
+      position: absolute;
+      content:"";
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background: url("../../public/icons/pixel-heart.png") no-repeat;
+      background-size: 25px 25px , cover;
+      background-position: center;
+    }
+  }
+}

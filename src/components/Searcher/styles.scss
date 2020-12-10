@@ -1,0 +1,27 @@
+.searcher {
+  width:100%;
+  margin-bottom: 20px;
+}
+.input-group {
+  position:relative;
+  input {
+    outline:none;
+    width:100%;
+    height:40px;
+    border:none;
+    padding-left:20px;
+    font-size:1.4rem;
+    border-radius:10px;
+  }
+  button {
+    width: 20%;
+    border-radius: 0 10px 10px 0;
+    position:absolute;
+    outline:none;
+    border:0;
+    background-color:var(--blue);
+    color:white;
+    right:0;
+    height:100%;
+  }
+}

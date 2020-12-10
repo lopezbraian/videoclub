@@ -1,0 +1,41 @@
+:root {
+  --blue:#6573ff;
+  --pink:#ce6ba8;
+
+  --lightGrey: rgba( 227,227,227);
+  --tmdbDarkBlue: rgba( 3,37,65);
+  --tmdbLightBlue: rgba( 1,180,228);
+  --tmdbLighterGreen: rgba( 192,254,207);
+  --tmdbLightGreen: rgba( 30,213,169);
+  --tmdbLogoGreen: rgba( 144,206,161);
+  --tmdbLogoOrange: rgba( 253,193,112);
+  --tmdbLogoRed: rgba( 217,59,99);
+  --accountSilver: rgba( 149,149,149);
+  --accountPink: rgba( 234,20,140);
+  --accountPurple: rgba( 128,91,231);
+  --accountGreen: rgba( 1,210,119);
+  --accountTeal: rgba( 1,198,172);
+  --accountLightBlue: rgba( 1,180,228);
+  --accountBlue: rgba( 1,119,210);
+  --accountOrange: rgba( 210,119,1);
+  --accountYellow: rgba( 210,144,1);
+  --accountRed: rgba( 212,2,66);
+}
+html {
+  font-family: 'Lato', sans-serif;
+  font-size : 62.5%;
+}
+* {
+  box-sizing:border-box;
+}
+body {
+  background-image: linear-gradient(to top right, rgb(101, 115, 255), rgb(111, 114, 247));
+  height:100%;
+  margin:0;
+  padding:0;
+  width: 100%;
+}
+#app {
+  padding:20px;
+  height: 100%;
+}

@@ -1,0 +1,22 @@
+.fav {
+  position: absolute;
+  border-radius: 50% ;
+  width: 30px;
+  background-color: var(--tmdbLightBlue) ;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  margin-top: 5px;
+  img {
+    filter: invert(100%);
+    width: 25px;
+    height: 25px;
+  }
+  &:hover {
+    background-color: red;
+  }
+}
