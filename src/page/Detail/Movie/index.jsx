@@ -34,6 +34,7 @@ export const Detail = (props) => {
                 overview = {data.overview}
                 genres = {data.genres}
                 type = 'movie'
+                vote = {data.vote_average}
                 releaseDate = {data.release_date}
               />
               <ListCast type={'movie'} id={data.id} />

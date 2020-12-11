@@ -85,6 +85,16 @@ const getCastTv = async (id) => {
     console.log(err)
   }
 }
+const getTrending = async (type, time) => {
+  try {
+    const url = `${URL_BASE}/trending/${type}/${time}?api_key=${KEY}`
+    const resp = await axios.get(url)
+    return resp.data
+  } catch {
+    return false
+    console.log(err)
+  }
+}
 export default {
   querySearch,
   queryMoviePopular,
@@ -94,5 +104,6 @@ export default {
   GetWatchProvidersMovie,
   GetWatchProvidersTv,
   getCastMovie,
-  getCastTv
+  getCastTv,
+  getTrending
 }

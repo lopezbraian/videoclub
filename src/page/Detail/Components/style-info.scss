@@ -6,13 +6,14 @@
   &__title {
     display: flex;
     flex-direction: column;
-    h2 {
+    >h2 {
       font-size: 4rem;
       margin: 0;
     }
   }
   &__genre {
     margin-left: 10px;
+    margin-bottom: 15px;
     span {
       font-weight: bold;
       margin-right: 5px;

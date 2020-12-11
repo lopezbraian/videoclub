@@ -29,7 +29,7 @@ export const ProvWatch = ({ id, type }) => {
       {!loaded
         ? ('Loading...')
         : (
-            provWatch.flatrate && (
+            provWatch.flatrate.length > 0 && (
             <div className="prov-watch-wrapper">
               {provWatch.flatrate.map((d, index) => {
                 return (
