@@ -11,16 +11,20 @@ export const ProvWatch = ({ id, type }) => {
   useEffect(() => {
     async function getData () {
       let provWatchRes
-      if (type === 'movie') {
-        provWatchRes = await api.GetWatchProvidersMovie(id)
-      } else {
-        provWatchRes = await api.GetWatchProvidersTv(id)
+      try {
+        if (type === 'movie') {
+          provWatchRes = await api.GetWatchProvidersMovie(id)
+        } else {
+          provWatchRes = await api.GetWatchProvidersTv(id)
+        }
+        console.log(provWatchRes)
+        if (provWatchRes.results.AR) {
+          setProvWatch(provWatchRes.results.AR)
+        }
+        setLoaded(true)
+      } catch {
+        return false
       }
-      console.log(provWatchRes)
-      if (provWatchRes.results.AR) {
-        setProvWatch(provWatchRes.results.AR)
-      }
-      setLoaded(true)
     }
     getData()
   }, [])
@@ -29,7 +33,7 @@ export const ProvWatch = ({ id, type }) => {
       {!loaded
         ? ('Loading...')
         : (
-            provWatch.flatrate.length > 0 && (
+            provWatch.flatrate && (
             <div className="prov-watch-wrapper">
               {provWatch.flatrate.map((d, index) => {
                 return (

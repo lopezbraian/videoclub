@@ -3,13 +3,16 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  margin-bottom: 20px;
 }
+
 .selector {
-  display: flex;
+  // display: flex;
+  max-width: 250px;
+  text-align: center;
   border-radius: 5px;
+  background-color: #032541;
   padding: 1rem;
-  justify-content: space-between;
-  position: relative;
   color: white;
   h2 {
     font-size: 2rem;

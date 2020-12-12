@@ -4,7 +4,6 @@ import imageDefault from '../../../public/images/image_default.svg'
 import './style.scss'
 
 export const Actor = ({ data }) => {
-  console.log(data)
   return (
     <div className="actor-card">
       <p className="actor-card__character">{data.character}</p>

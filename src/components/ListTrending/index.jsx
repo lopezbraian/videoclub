@@ -61,11 +61,11 @@ function SwitchType ({ setType, option }) {
   function renderLi (index, e) {
     if (activate === index) {
       return (
-        <li onClick={() => { click(index) }} style={{ backgroundColor: '#032541', color: 'white' }}>{e}</li>
+        <li key={index} onClick={() => { click(index) }} style={{ backgroundColor: '#032541', color: 'white' }}>{e}</li>
       )
     } else {
       return (
-        <li onClick={() => { click(index) }} >{e}</li>
+        <li key={index} onClick={() => { click(index) }} >{e}</li>
       )
     }
   }
@@ -88,11 +88,11 @@ function SwitchTime ({ setTime, option }) {
   function renderLi (index, e) {
     if (activate === index) {
       return (
-        <li onClick={() => { click(index) }} style={{ backgroundColor: '#032541', color: 'white' }}>{e}</li>
+        <li key={index} onClick={() => { click(index) }} style={{ backgroundColor: '#032541', color: 'white' }}>{e}</li>
       )
     } else {
       return (
-        <li onClick={() => { click(index) }} >{e}</li>
+        <li key={index} onClick={() => { click(index) }} >{e}</li>
       )
     }
   }

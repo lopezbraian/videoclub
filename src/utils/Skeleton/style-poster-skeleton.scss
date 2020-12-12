@@ -1,3 +1,6 @@
+.wrap-poster-skeleton{
+  display: flex;
+}
 .poster-skeleton {
   margin-right: 20px;
   height: 350px;
@@ -5,10 +8,10 @@
   &__image {
     position: relative;
     &__img {
-      animation: loading infinite 1s;
-      background-color: white;
+      background: linear-gradient(270deg, #ffffff, #8d8d8d);
+      background-size: 400% 400%;
+      animation: loading infinite 2s;
       border-radius: 10px;
-      // object-fit: cover;
       width: 150px;
     }
     &__vote {
@@ -18,28 +21,35 @@
   }
 
   &__title {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     padding: 10px;
+    height: 10px;
     &__name {
+      background: linear-gradient(270deg, #ffffff, #8d8d8d);
+      background-size: 400% 400%;
+      height: 10px;
       margin: 0;
       font-size: 1.5rem;
       font-weight: bold;
+      animation: loading 2s infinite;
     }
     &__date {
+      background: linear-gradient(270deg, #ffffff, #8d8d8d);
+      background-size: 400% 400%;
+      height: 10px;
+      width: 40px;
+      margin: auto;
+      margin-top: 10px;
       font-size: 1.2rem;
       color: var(--lightGrey);
+      animation: loading 2s infinite;
     }
   }
 }
+
 @keyframes loading {
-  0% {
-  background: rgba($color: #000000, $alpha: 1);
-  }
-  50% {
-    background: rgba($color: #000000, $alpha: .0);
-  }
-  100% {
-    background: rgba($color: #000000, $alpha: 1);
-  }
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }

@@ -21,7 +21,7 @@ export const Detail = () => {
   }, [])
 
   return (
-    <div className="wrapper-detail">
+    <div className="wrapper-detail wrapper-padding">
       {!loaded
         ? ('Cargando...')
         : (
@@ -35,6 +35,7 @@ export const Detail = () => {
                 genres = {data.genres}
                 type = 'tv'
                 releaseDate = {data.release_date}
+                vote = {data.vote_average}
               />
               <ListCast type={'tv'} id={data.id} />
             </>

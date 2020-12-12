@@ -4,7 +4,6 @@ import { Vote } from './Vote'
 import { Link } from 'react-router-dom'
 import './style.scss'
 export const Poster = ({ data, type }) => {
-  console.log('Data Poster : ', type)
   return (
       <div className="poster">
         <div className="poster__image">

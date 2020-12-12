@@ -28,6 +28,9 @@ html {
 * {
   box-sizing:border-box;
 }
+.wrapper-padding {
+  padding: 0 20px 0 20px;
+}
 body {
   background-image: linear-gradient(to top right, rgb(101, 115, 255), rgb(111, 114, 247));
   height:100%;
@@ -38,6 +41,5 @@ body {
   margin: auto;
 }
 #app {
-  padding:20px;
   height: 100%;
 }

@@ -8,7 +8,7 @@ export const ListMovies = () => {
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState([])
   useEffect(() => {
-    async function getData() {
+    async function getData () {
       const res = await api.queryMoviePopular()
       setData(res.results)
       setLoaded(true)
@@ -24,15 +24,15 @@ export const ListMovies = () => {
         {
           loaded
             ? (
-              data.map((data, index) => {
-                return (
+                data.map((data, index) => {
+                  return (
                   <Poster key={index} data={data} type={'movie'}></Poster>
-                )
-              })
-            )
+                  )
+                })
+              )
             : (
               <PosterSkeleton />
-            )
+              )
         }
       </div>
     </div>

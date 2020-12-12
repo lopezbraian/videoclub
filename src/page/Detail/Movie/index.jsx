@@ -21,7 +21,7 @@ export const Detail = (props) => {
     getData()
   }, [])
   return (
-    <div className="wrapper-detail">
+    <div className="wrapper-detail wrapper-padding">
       {!loaded
         ? ('Cargando...')
         : (

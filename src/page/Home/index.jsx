@@ -7,9 +7,11 @@ export const Home = (props) => {
   return (
     <>
       <Searcher></Searcher>
-      <ListTrendig/>
-      <ListMovies ></ListMovies>
-      <ListTv></ListTv>
+      <div className="wrapper-padding">
+        <ListTrendig/>
+        <ListMovies ></ListMovies>
+        <ListTv></ListTv>
+      </div>
     </>
   )
 }
