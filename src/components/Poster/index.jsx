@@ -16,7 +16,10 @@ export const Poster = ({ data, type }) => {
         </div>
         <div className="poster__title">
           <p className="poster__title__name">{data.title || data.name}</p>
-          <p className="poster__title__date">{data.release_date}</p>
+          {type === 'tv' && (
+            <p className="poster__title__date">Primer episodio</p>
+          )}
+          <p className="poster__title__date">{data.release_date || data.first_air_date}</p>
         </div>
       </div>
   )

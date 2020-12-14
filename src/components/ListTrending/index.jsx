@@ -6,22 +6,23 @@ import '../../styles/style-list-populate.scss'
 import './style.scss'
 
 export const ListTrendig = () => {
-  const [loaded, setLoaded] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
   const [time, setTime] = useState('day')
   const [type, setType] = useState('all')
   useEffect(() => {
     async function getData () {
+      setLoading(true)
       const res = await api.getTrending(type, time)
       setData(res.results)
-      setLoaded(true)
+      setLoading(false)
     }
     getData()
   }, [type, time])
   return (
     <div>
       <div className="selector">
-        <h2>Top en {type === 'all' ? 'Todo' : type === 'movie' ? 'Peliculas' : 'Series'}</h2>
+        <h2>Top en {type === 'all' ? 'series y peliculas' : type === 'movie' ? 'Peliculas' : 'Series'}</h2>
       </div>
       <div className="switch-wrapper">
         <SwitchType setType= {setType} option ={['todo', 'series', 'peliculas']} />
@@ -29,7 +30,7 @@ export const ListTrendig = () => {
       </div>
       <div className="wrap-poster">
         {
-          loaded
+          !loading
             ? (
                 data.map((data, index) => {
                   return (

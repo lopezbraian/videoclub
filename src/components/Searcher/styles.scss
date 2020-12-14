@@ -38,37 +38,11 @@
     font-size: 3rem;
   }
 }
-.input-group {
-  position:relative;
-  max-width: 500px;
-  margin: 0 auto;
-  width: 100%;
-  input {
-    outline:none;
-    width:100%;
-    height:40px;
-    border:none;
-    padding-left:20px;
-    font-size:1.4rem;
-    border-radius:10px;
-  }
-  button {
-    width: 20%;
-    border-radius: 0 10px 10px 0;
-    position:absolute;
-    outline:none;
-    border:0;
-    background-color: #032541;
-    color:white;
-    right:0;
-    height:100%;
-  }
-}
+
 @media screen and (min-width:1280px) {
   .searcher {
     &__h3 {
       padding: 0 300px 0 300px;
-     
     }
   }
 }

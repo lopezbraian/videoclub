@@ -6,7 +6,7 @@ const REGION = '&region=AR'
 
 const querySearch = async (query) => {
   try {
-    const resp = await axios.get(`${URL_BASE}/search/movie?api_key=${KEY}&query=${query}&${LANGUAGE}`)
+    const resp = await axios.get(`${URL_BASE}/search/multi?api_key=${KEY}&query=${query}&${LANGUAGE}`)
     return resp.data
   } catch (err) {
     console.log(err)

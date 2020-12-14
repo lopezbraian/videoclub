@@ -1,0 +1,15 @@
+.movie-page-s{
+  display: flex;
+  margin-bottom: 15px ;
+  img {
+    border-radius: 5px ;
+  }
+  &__info {
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    h5 {
+      color: rgb(190, 190, 190);
+    }
+  }
+}
