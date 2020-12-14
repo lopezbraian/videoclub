@@ -14,7 +14,6 @@ export const Detail = () => {
     async function getData () {
       const res = await api.getDatailTv(id)
       setData(res)
-      console.log(res)
       setLoaded(true)
     }
     getData()

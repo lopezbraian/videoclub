@@ -15,7 +15,6 @@ export const Detail = (props) => {
     async function getData () {
       const res = await api.getDatailMovie(id)
       setData(res)
-      console.log(res)
       setLoaded(true)
     }
     getData()

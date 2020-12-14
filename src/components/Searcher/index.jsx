@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import api from '../../api'
 import './styles.scss'
-import imageSearcher from '../../../public/images/9ijMGlJKqcslswWUzTEwScm82Gs.jpg'
+import imageSearcher from '../../images/searcher.jpg'
 export const Searcher = () => {
   const [query, setQuery] = useState('')
   const handleInput = (event) => {
@@ -10,7 +10,6 @@ export const Searcher = () => {
   const search = async () => {
     if (query.length > 3) {
       const response = await api.querySearch(query)
-      console.log(response)
     } else {
       return 0
     }

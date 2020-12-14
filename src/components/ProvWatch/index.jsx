@@ -17,7 +17,6 @@ export const ProvWatch = ({ id, type }) => {
         } else {
           provWatchRes = await api.GetWatchProvidersTv(id)
         }
-        console.log(provWatchRes)
         if (provWatchRes.results.AR) {
           setProvWatch(provWatchRes.results.AR)
         }

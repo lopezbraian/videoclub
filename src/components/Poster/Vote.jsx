@@ -2,7 +2,6 @@ import React from 'react'
 import './style-vote.scss'
 
 export const Vote = ({ vote }) => {
-  console.log('vote', vote)
   function getColor () {
     const voteFormat = vote * 10
     if (voteFormat < 60) {

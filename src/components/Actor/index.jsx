@@ -1,6 +1,6 @@
 import React from 'react'
 import { getUrlImage } from '../../utils/getUrlFromImages'
-import imageDefault from '../../../public/images/image_default.svg'
+import imageDefault from '../../images/image_default.svg'
 import './style.scss'
 
 export const Actor = ({ data }) => {

@@ -15,7 +15,6 @@ const querySearch = async (query) => {
 const queryMoviePopular = async () => {
   try {
     const url = `${URL_BASE}/movie/popular?api_key=${KEY}&${LANGUAGE}${REGION}`
-    console.log(url)
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {

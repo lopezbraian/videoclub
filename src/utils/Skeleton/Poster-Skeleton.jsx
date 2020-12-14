@@ -1,6 +1,6 @@
 import React from 'react'
 import { Vote } from '../../components/Poster/Vote'
-import imageDefault from '../../../public/images/image_default.svg'
+import imageDefault from '../../images/image_default.svg'
 import './style-poster-skeleton.scss'
 export const PosterSkeleton = () => {
   const data = {

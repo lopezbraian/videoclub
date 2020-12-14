@@ -13,7 +13,6 @@ export const ListCast = ({ type, id }) => {
       } else {
         result = await api.getCastTv(id)
       }
-      console.log('result', result)
       if (result) setData(result.cast)
     }
     getData()
