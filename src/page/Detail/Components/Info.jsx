@@ -1,5 +1,5 @@
 import React from 'react'
-import { Vote } from '../../../components/Poster/Vote'
+import { Vote } from '../../../components/Vote'
 import './style-info.scss'
 export const Info = ({ title, overview, genres, releaseDate, vote }) => {
   return (

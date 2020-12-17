@@ -1,6 +1,6 @@
 import React from 'react'
 import { getUrlImage } from '../../utils/getUrlFromImages'
-import { Vote } from './Vote'
+import { Vote } from '../Vote'
 import { Link } from 'react-router-dom'
 import './style.scss'
 export const Poster = ({ data, type }) => {
