@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './style-header.scss'
 import homeSvg from '../../public/icons/home.svg'
-
+import { ButtonBack } from './ButtonBack'
 export const Header = () => {
   return (
     <div className="header">
+        <ButtonBack/>
         <ul className="header__nav">
           <li>
             <Link to="/">

@@ -5,7 +5,7 @@ export const Layout = ({ children }) => {
   return (
     <div>
       <Header></Header>
-      <div className="wrapper-child">
+      <div style={{ paddingTop: '50px' }} className="wrapper-child">
         {children}
       </div>
     </div>

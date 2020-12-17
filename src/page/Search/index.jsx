@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom'
 import api from '../../api'
 import { Results } from './Results'
 import { Search as InputSearch } from '../../components/Search'
+import './style.scss'
+
 function useQuery () {
   return new URLSearchParams(useLocation().search)
 }
