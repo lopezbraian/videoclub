@@ -1,32 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import './style-vote.scss'
-import styled, { keyframes } from 'styled-components'
-
 export const Vote = ({ vote }) => {
   return (
-    <div className="box">
-      <div className="percent">
-        <svg>
-          <circle cy="50%" cx="50%" r="25"></circle>
-          <Circle vote={vote * 10} cy="50%" cx="50%" r="25"></Circle>
-        </svg>
-        <div className="number">
-          <h2>{vote} <span>pts</span></h2>
-        </div>
-      </div>
+    <div className="wrapper-vote">
+      <CircularProgress style={{ color: ' rgb(10, 223, 28)' }} size="5.5rem" variant="determinate" value={vote * 10} color="primary"/>
+      <p>{vote === 0 ? ('-- ') : (vote) }<span> pts</span></p>
     </div>
   )
 }
-const animation = keyframes`
-  from{
-    stroke-dashoffset:0;
-  }
-  to{
-    stroke-dashoffset:${props => 156.83 - (156.83 * props.vote) / 100};
-  }
-`
-const Circle = styled.circle`
-    stroke: #04fc04 ;
-    animation:${animation} 5s;
-    stroke-dashoffset:${props => 156.83 - (156.83 * props.vote) / 100}
-`
