@@ -91,10 +91,19 @@ const getTrending = async (type, time) => {
     return resp.data
   } catch {
     return false
-    console.log(err)
+  }
+}
+const discoverMovie = async () => {
+  try {
+    const url = `${URL_BASE}/discover/movie?api_key=${KEY}&${LANGUAGE}&${REGION}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte=7`
+    const resp = await axios.get(url)
+    return resp.data
+  } catch {
+    return false
   }
 }
 export default {
+  discoverMovie,
   querySearch,
   queryMoviePopular,
   queryTvPopular,

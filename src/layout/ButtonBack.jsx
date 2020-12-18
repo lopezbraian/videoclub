@@ -8,7 +8,7 @@ export const ButtonBack = () => {
     history.goBack()
   }
   return (
-    <div style={{ marginLeft: '10px', position: 'absolute', left: '0' }} onClick={handleForward}>
+    <div style={{ marginLeft: '6%', position: 'absolute', left: '0' }} onClick={handleForward}>
         <img style={{ filter: 'invert(100%)' }} width="20px" height="20px" src={back} alt="home"></img>
     </div>
   )

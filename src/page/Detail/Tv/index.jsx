@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from '../../../api'
 import { ListCast } from '../../../components/ListCast'
+import { CirculesProgress } from '../../../components/Loading'
 import { Hero } from '../Components/Hero'
 import { WrapperInfo } from '../Components/WrapperInfo'
 
@@ -22,9 +23,11 @@ export const Detail = () => {
   return (
     <div className="wrapper-detail wrapper-padding">
       {!loaded
-        ? ('Cargando...')
+        ? (
+          <CirculesProgress/>
+          )
         : (
-            <>
+            <div>
               <Hero path={data.backdrop_path}></Hero>
               <WrapperInfo
                 posterPath = {data.poster_path}
@@ -37,7 +40,7 @@ export const Detail = () => {
                 vote = {data.vote_average}
               />
               <ListCast type={'tv'} id={data.id} />
-            </>
+            </div>
           )
       }
     </div>

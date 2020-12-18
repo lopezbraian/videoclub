@@ -3,15 +3,6 @@ import './style-vote.scss'
 import styled, { keyframes } from 'styled-components'
 
 export const Vote = ({ vote }) => {
-  const calcCircle = () => {
-    const voteConvert = vote * 10
-    const value = (164 * voteConvert) / 100
-    console.log(value)
-    return {
-      strokeDasharray: `${value}`
-    }
-  }
-  calcCircle()
   return (
     <div className="box">
       <div className="percent">
