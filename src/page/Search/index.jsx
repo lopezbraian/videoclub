@@ -40,7 +40,6 @@ export const Search = () => {
       try {
         setLoading(true)
         const result = await api.querySearch(query)
-        console.log(result)
         if (result) { setData(result) }
         setLoading(false)
       } catch {

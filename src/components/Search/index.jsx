@@ -6,6 +6,7 @@ export const Search = ({ initialValue }) => {
   const [query, setQuery] = useState(initialValue)
   const history = useHistory()
   const handleInput = (event) => {
+    console.log('event', event.target.value)
     setQuery(event.target.value)
   }
   const search = async () => {
@@ -15,7 +16,7 @@ export const Search = ({ initialValue }) => {
   }
   return (
     <div className="input-group">
-      <input value={query} onChange={handleInput} placeholder="Buscar por nombre"></input>
+      <input value={query} onChange={handleInput} placeholder="Busca peliculas , series y personas"></input>
       <button onClick={search}>Buscar</button>
     </div>
   )

@@ -1,4 +1,4 @@
-.movie-page-s{
+.poster-only-name{
   display: flex;
   margin-bottom: 15px ;
   img {
@@ -7,9 +7,8 @@
   &__info {
     margin-left: 10px;
     text-transform: uppercase;
+    color: black;
     font-size: 1.4rem;
-    h5 {
-      color: rgb(190, 190, 190);
-    }
+    
   }
 }

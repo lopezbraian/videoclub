@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom'
 import api from '../../../api'
 import { ListCast } from '../../../components/ListCast'
 import { CirculesProgress } from '../../../components/Loading'
-import { Hero } from '../Components/Hero'
-import { WrapperInfo } from '../Components/WrapperInfo'
+import { Hero } from '../Common/Hero'
+import { Poster } from '../Common/Poster'
+import { Info } from '../Common/Info'
+import '../Common/style.scss'
 
 export const Detail = () => {
   const { id } = useParams()
@@ -13,9 +15,13 @@ export const Detail = () => {
 
   useEffect(() => {
     async function getData () {
-      const res = await api.getDatailTv(id)
-      setData(res)
-      setLoaded(true)
+      try {
+        const res = await api.getDatailTv(id)
+        setData(res)
+        setLoaded(true)
+      } catch {
+        return false
+      }
     }
     getData()
   }, [])
@@ -29,16 +35,10 @@ export const Detail = () => {
         : (
             <div>
               <Hero path={data.backdrop_path}></Hero>
-              <WrapperInfo
-                posterPath = {data.poster_path}
-                id = {data.id}
-                title = {data.title || data.original_name}
-                overview = {data.overview}
-                genres = {data.genres}
-                type = 'tv'
-                releaseDate = {data.release_date}
-                vote = {data.vote_average}
-              />
+              <div className="wrapper-poster-info">
+                <Poster id={data.id} img={data.poster_path} type='tv' watch = {true} ></Poster>
+                <Info title={data.name} overview={data.overview} genres={data.genres} releaseDate={data.releaseDate} vote={data.vote_average}></Info>
+              </div>
               <ListCast type={'tv'} id={data.id} />
             </div>
           )

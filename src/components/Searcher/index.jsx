@@ -10,7 +10,6 @@ export const Searcher = () => {
   useEffect(() => {
     async function getData () {
       const res = await api.discoverMovie()
-      console.log(res.results)
       if (res) {
         try {
           const indexes = res.results.length - 1
@@ -39,7 +38,7 @@ export const Searcher = () => {
         <h3 className="searcher__h3">Bienvenidos</h3>
         <h3 className="searcher__h3">Millones de películas, programas de televisión. Explora ahora.</h3>
       </div>
-      <Search/>
+      <Search initialValue={''}/>
     </div>
   )
 }

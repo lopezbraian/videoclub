@@ -1,5 +1,5 @@
 import React from 'react'
-import { getUrlImage } from '../../../utils/getUrlFromImages'
+import { getUrlImage } from '../../../../utils/getUrlFromImages'
 import './style-hero.scss'
 export const Hero = ({ path }) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Vote } from '../../../components/Vote'
+import { Vote } from '../../../../components/Vote'
 import './style-info.scss'
 export const Info = ({ title, overview, genres, releaseDate, vote }) => {
   return (
@@ -13,7 +13,9 @@ export const Info = ({ title, overview, genres, releaseDate, vote }) => {
             )
           })}
         </div>
-        <Vote vote={vote}></Vote>
+        <div style={{ width: 'max-content', margin: '10px' }}>
+          <Vote vote={vote}></Vote>
+        </div>
       </div>
       <div className="detail-info__res">
         <h4 >Resumen</h4>

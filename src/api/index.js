@@ -102,6 +102,24 @@ const discoverMovie = async () => {
     return false
   }
 }
+const getPerson = async (personId) => {
+  try {
+    const url = `${URL_BASE}/person/${personId}?api_key=${KEY}&${LANGUAGE}`
+    const resp = await axios.get(url)
+    return resp.data
+  } catch {
+    return false
+  }
+}
+const getPersonCredits = async (personId) => {
+  try {
+    const url = `${URL_BASE}/person/${personId}/combined_credits?api_key=${KEY}&${LANGUAGE}`
+    const resp = await axios.get(url)
+    return resp.data
+  } catch {
+    return false
+  }
+}
 export default {
   discoverMovie,
   querySearch,
@@ -113,5 +131,7 @@ export default {
   GetWatchProvidersTv,
   getCastMovie,
   getCastTv,
-  getTrending
+  getTrending,
+  getPerson,
+  getPersonCredits
 }

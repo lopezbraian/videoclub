@@ -19,7 +19,7 @@ export const ListCast = ({ type, id }) => {
   }, [])
   return (
     <>
-      <h2 style={{ textAlign: 'left', fontSize: '3.5rem', margin: '0', marginTop: '15px', color: 'white' }}>Elenco (10 de {data.length + 1})
+      <h2 style={{ textAlign: 'left', fontSize: '3.5rem', margin: '0', marginTop: '15px' }}>Elenco (10 de {data.length + 1})
         <span style={{ display: 'block', fontSize: '1.5rem', color: 'lightGreen' }}>Ver todos</span>
       </h2>
       <div className="actor-wrapper">
