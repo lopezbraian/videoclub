@@ -11,8 +11,8 @@ export const Person = ({ data }) => {
       <img src={url} heigth="150px" width="100px"></img>
       <div className="person__info">
         <h4>{data.name}</h4>
+        <p>{data.known_for_department} • </p>
         <p>
-          <span>{data.known_for_department} • </span>
           {data.known_for.map((d, index) => {
             return (
               <span className="person__info__title" key={index}>

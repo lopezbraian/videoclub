@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 25px;
+ 
   &__title {
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@
     }
     p {
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       line-height: 25px;
       color: white;
     }
@@ -42,16 +42,13 @@
 }
 @media screen and (min-width:720px ) {
   .detail-info{
+    margin-left: 25px;
     &__res {
       margin-top: 0;
       border-radius: 0;
       background:none;
-      h4 {
-        color: black;
-      }
       p {
         width: 75%;
-        color: black;
       }
     }
   }

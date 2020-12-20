@@ -54,7 +54,9 @@ export const Search = () => {
         ? '...cargando'
         : (
         <>
-          <InputSearch initialValue={query}/>
+          <div style={{ margin: '20px' }}>
+            <InputSearch initialValue={query}/>
+          </div>
           <Filter types={types} setSelectType={setSelectType} selectType={selectType}></Filter>
           <div style={{ padding: '20px' }}>
             <Results data = {data} selectType={selectType}></Results>

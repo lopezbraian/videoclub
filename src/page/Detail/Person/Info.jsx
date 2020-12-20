@@ -7,7 +7,7 @@ export const Info = ({ name, bio = '' }) => {
       <h3>{name}</h3>
       <div className="info-actor__bio">
         <h4>Biografía</h4>
-        <p>{bio.slice(0, 400) || (`No tenemos una biografia sobre ${name}`)}</p>
+        <p>{bio.slice(0, 400) || (`No tenemos una biografía sobre ${name}`)}</p>
       </div>
     </div>
   )
