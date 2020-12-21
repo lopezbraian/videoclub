@@ -8,20 +8,16 @@ export const Search = ({ initialValue }) => {
   const handleInput = (event) => {
     setQuery(event.target.value)
   }
-  const search = async () => {
+  const search = async (event) => {
+    event.preventDefault()
     if (query.length > 3) {
       history.push(`/search?query=${query}`)
     }
   }
-  const keyPress = (event) => {
-    if (event.code === 'Enter') {
-      search()
-    }
-  }
   return (
-    <div className="input-group">
-      <input onKeyPress={(event) => { keyPress(event) }} value={query} onChange={handleInput} placeholder="Busca peliculas , series y personas"></input>
+    <form onSubmit={search} className="input-group">
+      <input value={query} onChange={handleInput} placeholder="Busca peliculas , series y personas"></input>
       <button onClick={search}>Buscar</button>
-    </div>
+    </form>
   )
 }

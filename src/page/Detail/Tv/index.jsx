@@ -14,11 +14,16 @@ export const Detail = () => {
   const [data, setData] = useState({})
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     async function getData () {
       try {
         const res = await api.getDatailTv(id)
-        setData(res)
-        setLoaded(true)
+        if (res) {
+          setData(res)
+          setLoaded(true)
+        } else {
+          window.location.replace('/404')
+        }
       } catch {
         return false
       }

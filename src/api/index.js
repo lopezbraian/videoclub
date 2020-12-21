@@ -9,7 +9,7 @@ const querySearch = async (query) => {
     const resp = await axios.get(`${URL_BASE}/search/multi?api_key=${KEY}&query=${query}&${LANGUAGE}`)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const queryMoviePopular = async () => {
@@ -18,7 +18,7 @@ const queryMoviePopular = async () => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const queryTvPopular = async () => {
@@ -27,7 +27,7 @@ const queryTvPopular = async () => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const getDatailMovie = async (id) => {
@@ -36,7 +36,7 @@ const getDatailMovie = async (id) => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const getDatailTv = async (id) => {
@@ -45,7 +45,7 @@ const getDatailTv = async (id) => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const GetWatchProvidersMovie = async (id) => {
@@ -54,7 +54,7 @@ const GetWatchProvidersMovie = async (id) => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const GetWatchProvidersTv = async (id) => {
@@ -63,7 +63,7 @@ const GetWatchProvidersTv = async (id) => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const getCastMovie = async (id) => {
@@ -72,7 +72,7 @@ const getCastMovie = async (id) => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const getCastTv = async (id) => {
@@ -81,7 +81,7 @@ const getCastTv = async (id) => {
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
-    console.log(err)
+    return false
   }
 }
 const getTrending = async (type, time) => {

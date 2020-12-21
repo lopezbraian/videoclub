@@ -19,7 +19,9 @@ export const Info = ({ title, overview, genres, releaseDate, vote }) => {
       </div>
       <div className="detail-info__res">
         <h4 >Resumen</h4>
-        <p className="detail-info__overview">{overview}</p>
+        <p className="detail-info__overview">
+          {overview || ('No tenemos un resumen')}
+        </p>
       </div>
     </div>
   )

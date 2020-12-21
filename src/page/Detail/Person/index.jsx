@@ -12,9 +12,9 @@ export const PersonDetail = () => {
   const [data, setData] = useState({})
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
+    window.scrollTo(0, 0)
     async function getData () {
       const result = await api.getPerson(id)
-      console.log(result)
       setData(result)
       setLoaded(true)
     }

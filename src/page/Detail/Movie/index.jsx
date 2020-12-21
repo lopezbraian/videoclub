@@ -14,11 +14,16 @@ export const Detail = (props) => {
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState({})
   useEffect(() => {
+    window.scrollTo(0, 0)
     async function getData () {
       try {
         const res = await api.getDatailMovie(id)
-        if (res) { setData(res) }
-        setLoaded(true)
+        if (res) {
+          setData(res)
+          setLoaded(true)
+        } else {
+          window.location.replace('/404')
+        }
       } catch {
         return false
       }

@@ -5,6 +5,7 @@ import { Detail } from '../page/Detail/Movie'
 import { Detail as DetailTv } from '../page/Detail/Tv'
 import { Search } from '../page/Search'
 import { PersonDetail } from '../page/Detail/Person'
+import { Error404 } from '../page/Error'
 import { Layout } from '../layout'
 export default function App () {
   return (
@@ -15,6 +16,7 @@ export default function App () {
         <Route exact path="/person/:id" render={(props) => <Layout><PersonDetail {...props}/></Layout>} />
         <Route exact path="/tv/:id" render={(props) => <Layout><DetailTv {...props}/></Layout>} />
         <Route exact path="/search" render={(props) => <Layout><Search {...props}/></Layout>} />
+        <Route render={(props) => <Layout><Error404 {...props} /></Layout>} />
       </Switch>
     </Router>
   )
