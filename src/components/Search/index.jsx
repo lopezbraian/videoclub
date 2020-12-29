@@ -17,7 +17,7 @@ export const SearchPres = ({ initialValue, modeDark }) => {
   }
   return (
     <WrapperForm onSubmit={search} modeDark={modeDark} >
-      <input value={query} onChange={handleInput} placeholder="Busca peliculas , series y personas"></input>
+      <input value={query} onChange={handleInput} placeholder="Series y películas"></input>
       <button onClick={search}>Buscar</button>
     </WrapperForm>
   )

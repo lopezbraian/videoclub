@@ -5,7 +5,7 @@ import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
 import TitleSection from '../TitleSection'
 import { WrapPoster } from '../../styles/Style-WrapPoster'
 import { Switch } from './Switch'
-import { WrapperSwitch } from './Style-ListTrending'
+import { WrapperHeaderList, WrapperSwitch } from './Style-ListTrending'
 
 export const ListTrendig = () => {
   const [loading, setLoading] = useState(false)
@@ -27,11 +27,13 @@ export const ListTrendig = () => {
   }, [type, time])
   return (
     <>
-      <TitleSection text = { `Top en ${type === 'all' ? 'series y peliculas' : type === 'movie' ? 'Peliculas' : 'Series'}` }/>
-      <WrapperSwitch>
-        <Switch select={setType} option ={['all', 'tv', 'movie']} />
-        <Switch select= {setTime} option ={['day', 'week']} />
-      </WrapperSwitch>
+      <WrapperHeaderList>
+        <TitleSection text = { `Top en ${type === 'all' ? 'series y peliculas' : type === 'movie' ? 'Peliculas' : 'Series'}` }/>
+        <WrapperSwitch>
+          <Switch select={setType} option ={['all', 'tv', 'movie']} />
+          <Switch select= {setTime} option ={['day', 'week']} />
+        </WrapperSwitch>
+      </WrapperHeaderList>
       <WrapPoster>
         {
           !loading

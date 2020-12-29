@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { LiSelect, Ul, Li } from './Style-Switch'
+import { LiSelect, Ul, Li, WrapperSwitch } from './Style-Switch'
 function SwitchPres ({ select, option, modeDark }) {
   const [activate, setActivate] = useState(0)
   const translate = (text) => {

@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 export const WrapperPoster = styled.div`
   margin-right: 20px;
-  height: 100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
 `
 export const WrapperImage = styled.div`
   position: relative;
@@ -27,6 +29,8 @@ const P = styled.p`
 `
 export const Name = styled(P)`
   margin: 0;
+  height:36px;
+  overflow:hidden;
   font-size: 1.5rem;
   font-weight: bold;
 `

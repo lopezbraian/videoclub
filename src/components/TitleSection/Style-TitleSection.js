@@ -1,13 +1,10 @@
 import styled from 'styled-components'
 
 export const WrapperSelector = styled.div`
-  max-width: 300px;
-  text-align: center;
-  border-radius: 5px;
-  padding: 1rem;
-  font-size:1.3rem;
-  background-color: ${props => props.modeDark ? 'white' : 'var(--BACKGROUND_THEME_DARK)'};
-  color: ${props => props.modeDark ? ('dark') : ('white')};
+  border-radius: 15px;
+  font-size:2rem;
+  font-weight:700;
+  color: ${props => props.modeDark ? ('white') : ('black')};
   h2 {
     margin:0
   }
