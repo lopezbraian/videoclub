@@ -4,10 +4,15 @@ import { Poster } from '../Poster'
 import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
 import { WrapPoster } from '../../styles/Style-WrapPoster'
 import TitleSection from '../TitleSection'
+import { useScroll } from '../../hooks/useScroll'
 
 export const ListTv = () => {
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState([])
+  const [scroll, setScroll] = useScroll()
+  function handleScroll (e) {
+    setScroll(e.target)
+  }
   useEffect(() => {
     async function getData () {
       try {
@@ -23,7 +28,7 @@ export const ListTv = () => {
   return (
     <div>
       <TitleSection text={'Lo más popular en series'} />
-      <WrapPoster>
+      <WrapPoster scroll={scroll} onScroll={handleScroll}>
         {
           loaded
             ? (

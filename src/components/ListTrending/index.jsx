@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import api from '../../api'
 import { Poster } from '../Poster'
 import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
@@ -6,13 +6,18 @@ import TitleSection from '../TitleSection'
 import { WrapPoster } from '../../styles/Style-WrapPoster'
 import { Switch } from './Switch'
 import { WrapperHeaderList, WrapperSwitch } from './Style-ListTrending'
+import { useScroll } from '../../hooks/useScroll'
 
 export const ListTrendig = () => {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
   const [time, setTime] = useState('day')
   const [type, setType] = useState('all')
+  const [scroll, setScroll] = useScroll()
 
+  function handleScroll (e) {
+    setScroll(e.target)
+  }
   useEffect(() => {
     async function getData () {
       try {
@@ -34,7 +39,7 @@ export const ListTrendig = () => {
           <Switch select= {setTime} option ={['day', 'week']} />
         </WrapperSwitch>
       </WrapperHeaderList>
-      <WrapPoster>
+      <WrapPoster scroll={scroll} onScroll = {handleScroll}>
         {
           !loading
             ? (
