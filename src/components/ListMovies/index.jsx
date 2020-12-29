@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Poster } from '../Poster'
 import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
-import '../../styles/style-list-populate.scss'
-
+import { WrapPoster } from '../../styles/Style-WrapPoster'
+import TitleSection from '../TitleSection'
 export const ListMovies = () => {
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState([])
@@ -17,10 +17,8 @@ export const ListMovies = () => {
   }, [])
   return (
     <div>
-      <div className="selector">
-        <h2>Lo más popular en peliculas</h2>
-      </div>
-      <div className="wrap-poster">
+      <TitleSection text={'Lo más popular en peliculas'} />
+      <WrapPoster>
         {
           loaded
             ? (
@@ -34,7 +32,7 @@ export const ListMovies = () => {
               <PosterSkeleton />
               )
         }
-      </div>
+      </WrapPoster>
     </div>
   )
 }

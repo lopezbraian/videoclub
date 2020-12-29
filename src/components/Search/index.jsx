@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import './style.scss'
+import { WrapperForm } from './style'
+import { connect } from 'react-redux'
 
-export const Search = ({ initialValue }) => {
+export const SearchPres = ({ initialValue, modeDark }) => {
   const [query, setQuery] = useState(initialValue)
   const history = useHistory()
   const handleInput = (event) => {
@@ -15,9 +16,15 @@ export const Search = ({ initialValue }) => {
     }
   }
   return (
-    <form onSubmit={search} className="input-group">
+    <WrapperForm onSubmit={search} modeDark={modeDark} >
       <input value={query} onChange={handleInput} placeholder="Busca peliculas , series y personas"></input>
       <button onClick={search}>Buscar</button>
-    </form>
+    </WrapperForm>
   )
 }
+const mapStateToProps = state => {
+  return {
+    modeDark: state.ui.modeDark
+  }
+}
+export const Search = connect(mapStateToProps, {})(SearchPres)

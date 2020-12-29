@@ -4,7 +4,9 @@ import { useLocation } from 'react-router-dom'
 import api from '../../api'
 import { Results } from './Results'
 import { Search as InputSearch } from '../../components/Search'
-import './style.scss'
+import { connect } from 'react-redux'
+import { CirculesProgress } from '../../components/Loading'
+import { WrapperSearch } from './style'
 
 function useQuery () {
   return new URLSearchParams(useLocation().search)
@@ -28,7 +30,7 @@ function useGetTypes (data = []) {
   })
   return types
 }
-export const Search = () => {
+export const SearchPres = ({ modeDark }) => {
   const query = useQuery().get('query')
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
@@ -49,20 +51,26 @@ export const Search = () => {
     getData()
   }, [query])
   return (
-    <div>
+    <>
       {loading
-        ? '...cargando'
+        ? <CirculesProgress/>
         : (
         <>
-          <div style={{ margin: '20px' }}>
+          <WrapperSearch>
             <InputSearch initialValue={query}/>
-          </div>
-          <Filter types={types} setSelectType={setSelectType} selectType={selectType}></Filter>
+          </WrapperSearch>
+          <Filter modeDark={modeDark} types={types} setSelectType={setSelectType} selectType={selectType}></Filter>
           <div style={{ padding: '20px' }}>
-            <Results data = {data} selectType={selectType}></Results>
+            <Results modeDark={modeDark} data = {data} selectType={selectType}></Results>
           </div>
         </>
           )}
-    </div>
+    </>
   )
 }
+const mapStateToProps = state => {
+  return {
+    modeDark: state.ui.modeDark
+  }
+}
+export const Search = connect(mapStateToProps, {})(SearchPres)

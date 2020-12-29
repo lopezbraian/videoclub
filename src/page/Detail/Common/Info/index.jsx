@@ -1,28 +1,29 @@
 import React from 'react'
 import { Vote } from '../../../../components/Vote'
-import './style-info.scss'
+import { WrapperTitle, Wrapper, WrapperResumen, WrapperVote, WrapperGenero } from './Style-Info'
+
 export const Info = ({ title, overview, genres, releaseDate, vote }) => {
   return (
-    <div className="detail-info">
-      <div className="detail-info__title">
+    <Wrapper>
+      <WrapperTitle>
         <h2>{title} { releaseDate && `(${releaseDate.split('-')[0]})`}</h2>
-        <div className="detail-info__genre">
+        <WrapperGenero>
           {genres.map((d, index) => {
             return (
               <span key={index}>{d.name}</span>
             )
           })}
-        </div>
-        <div style={{ width: 'max-content', margin: '10px' }}>
-          <Vote vote={vote}></Vote>
-        </div>
-      </div>
-      <div className="detail-info__res">
-        <h4 >Resumen</h4>
-        <p className="detail-info__overview">
+        </WrapperGenero>
+      </WrapperTitle>
+      <WrapperVote>
+        <Vote vote={vote}></Vote>
+      </WrapperVote>
+      <WrapperResumen>
+        <h4>Resumen</h4>
+        <p>
           {overview || ('No tenemos un resumen')}
         </p>
-      </div>
-    </div>
+      </WrapperResumen>
+    </Wrapper>
   )
 }

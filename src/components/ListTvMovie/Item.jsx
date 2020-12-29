@@ -1,21 +1,19 @@
 import React from 'react'
 import { getUrlImage } from '../../utils/getUrlFromImages'
 import imageDefault from '../../images/image_default.svg'
-import './style-item.scss'
 import { Link } from 'react-router-dom'
+import { WrapperInfo, Wrapper } from './style-item'
 
-export const Item = ({ data, type }) => {
+export const Item = ({ data, type, modeDark }) => {
   const url = getUrlImage(200, data.poster_path) || imageDefault
   return (
-    <div>
-      <Link to={type === 'movie' ? `/movie/${data.id}` : (`/tv/${data.id}`)}>
-        <div className="item-name">
-            <img src={url} heigth="250px" width="250px"></img>
-            <div className="item-name__info">
-              <p>{data.title || data.name}</p>
-            </div>
-        </div>
-      </Link>
-    </div>
+    <Link to={type === 'movie' ? `/movie/${data.id}` : (`/tv/${data.id}`)}>
+      <Wrapper>
+          <img src={url} heigth="250px" width="250px"></img>
+          <WrapperInfo modeDark ={modeDark} >
+            <p>{data.title || data.name}</p>
+          </WrapperInfo>
+      </Wrapper>
+    </Link>
   )
 }

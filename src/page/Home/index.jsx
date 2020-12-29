@@ -9,8 +9,8 @@ export const Home = (props) => {
       <Searcher></Searcher>
       <div className="wrapper-padding">
         <ListTrendig/>
-        <ListMovies ></ListMovies>
-        <ListTv></ListTv>
+        <ListMovies />
+        <ListTv/>
       </div>
     </>
   )

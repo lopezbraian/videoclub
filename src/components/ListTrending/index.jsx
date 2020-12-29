@@ -2,33 +2,37 @@ import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Poster } from '../Poster'
 import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
-import '../../styles/style-list-populate.scss'
-import './style.scss'
+import TitleSection from '../TitleSection'
+import { WrapPoster } from '../../styles/Style-WrapPoster'
+import { Switch } from './Switch'
+import { WrapperSwitch } from './Style-ListTrending'
 
 export const ListTrendig = () => {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
   const [time, setTime] = useState('day')
   const [type, setType] = useState('all')
+
   useEffect(() => {
     async function getData () {
-      setLoading(true)
-      const res = await api.getTrending(type, time)
-      setData(res.results)
-      setLoading(false)
+      try {
+        setLoading(true)
+        const res = await api.getTrending(type, time)
+        setData(res.results)
+        setLoading(false)
+      } catch {
+      }
     }
     getData()
   }, [type, time])
   return (
-    <div>
-      <div className="selector">
-        <h2>Top en {type === 'all' ? 'series y peliculas' : type === 'movie' ? 'Peliculas' : 'Series'}</h2>
-      </div>
-      <div className="switch-wrapper">
-        <SwitchType setType= {setType} option ={['todo', 'series', 'peliculas']} />
-        <SwitchTime setTime= {setTime} option ={['dia', 'semana']} />
-      </div>
-      <div className="wrap-poster">
+    <>
+      <TitleSection text = { `Top en ${type === 'all' ? 'series y peliculas' : type === 'movie' ? 'Peliculas' : 'Series'}` }/>
+      <WrapperSwitch>
+        <Switch select={setType} option ={['all', 'tv', 'movie']} />
+        <Switch select= {setTime} option ={['day', 'week']} />
+      </WrapperSwitch>
+      <WrapPoster>
         {
           !loading
             ? (
@@ -42,64 +46,7 @@ export const ListTrendig = () => {
               <PosterSkeleton />
               )
         }
-      </div>
-    </div>
-  )
-}
-
-function SwitchType ({ setType, option }) {
-  const [activate, setActivate] = useState(0)
-  function click (index) {
-    setActivate(index)
-    if (index === 0) {
-      setType('all')
-    } else if (index === 1) {
-      setType('tv')
-    } else {
-      setType('movie')
-    }
-  }
-  function renderLi (index, e) {
-    if (activate === index) {
-      return (
-        <li key={index} onClick={() => { click(index) }} style={{ backgroundColor: '#032541', color: 'white' }}>{e}</li>
-      )
-    } else {
-      return (
-        <li key={index} onClick={() => { click(index) }} >{e}</li>
-      )
-    }
-  }
-  return (
-      <ul className="switch-wrapper__ul">
-        {option.map((e, index) => renderLi(index, e))}
-      </ul>
-  )
-}
-function SwitchTime ({ setTime, option }) {
-  const [activate, setActivate] = useState(0)
-  function click (index) {
-    setActivate(index)
-    if (index === 0) {
-      setTime('day')
-    } else {
-      setTime('week')
-    }
-  }
-  function renderLi (index, e) {
-    if (activate === index) {
-      return (
-        <li key={index} onClick={() => { click(index) }} style={{ backgroundColor: '#032541', color: 'white' }}>{e}</li>
-      )
-    } else {
-      return (
-        <li key={index} onClick={() => { click(index) }} >{e}</li>
-      )
-    }
-  }
-  return (
-      <ul className="switch-wrapper__ul">
-        {option.map((e, index) => renderLi(index, e))}
-      </ul>
+      </WrapPoster>
+    </>
   )
 }

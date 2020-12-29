@@ -6,10 +6,9 @@ import { ListCast } from '../../../components/ListCast'
 import { CirculesProgress } from '../../../components/Loading'
 import { Poster } from '../Common/Poster'
 import { Info } from '../Common/Info'
+import { WrapperDetail, WrapperPoster } from '../Common/Style'
 
-import '../Common/style.scss'
-
-export const Detail = (props) => {
+export const Detail = ({ modeDark }) => {
   const { id } = useParams()
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState({})
@@ -31,7 +30,7 @@ export const Detail = (props) => {
     getData()
   }, [])
   return (
-    <div className="wrapper-detail wrapper-padding">
+    <WrapperDetail>
       {!loaded
         ? (
           <CirculesProgress/>
@@ -39,14 +38,14 @@ export const Detail = (props) => {
         : (
             <>
               <Hero path={data.backdrop_path}></Hero>
-              <div className="wrapper-poster-info">
+              <WrapperPoster modeDark={modeDark}>
                 <Poster id={data.id} img={data.poster_path} type='movie' watch = {true} ></Poster>
                 <Info title={data.title} overview={data.overview} genres={data.genres} releaseDate={data.releaseDate} vote={data.vote_average}></Info>
-              </div>
+              </WrapperPoster>
               <ListCast type={'movie'} id={data.id} />
             </>
           )
       }
-    </div>
+    </WrapperDetail>
   )
 }

@@ -4,49 +4,52 @@ import { useParams } from 'react-router-dom'
 import { Info } from './Info'
 import { Poster } from '../Common/Poster'
 import { ListTvMovie } from '../../../components/ListTvMovie'
-import './style.scss'
+import { H4, Wrapper, WrapperInfo, WrapperLeft, WrapperRigth } from './style'
 import { InfoItem } from './Info-item'
 
-export const PersonDetail = () => {
+export const PersonDetail = ({ modeDark }) => {
   const { id } = useParams()
   const [data, setData] = useState({})
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     window.scrollTo(0, 0)
     async function getData () {
-      const result = await api.getPerson(id)
-      setData(result)
-      setLoaded(true)
+      try {
+        const result = await api.getPerson(id)
+        setData(result)
+        setLoaded(true)
+      } catch {
+      }
     }
     getData()
   }, [])
   return (
-    <div>
+    <>
       {
         loaded
           ? (
-            <div className="wrapper-detail-person">
-              <div className="wrapper-detail-person__left">
+            <Wrapper modeDark={modeDark}>
+              <WrapperLeft>
                 <Poster id={data.id} img={data.profile_path} />
-                <div className="wrapper-detail-person__left__info">
-                  <h4 className="poster-info-h4">Información personal</h4>
+                <WrapperInfo>
+                  <H4>Información personal</H4>
                   <InfoItem title={'Cumpleaños'} content={data.birthday}/>
                   <InfoItem title={'Lugar Nacimiento'} content={data.place_of_birth}/>
                   <InfoItem title={'Conocido por'} content={data.known_for_department}/>
-                </div>
-              </div>
-              <div className="wrapper-detail-person__right">
+                </WrapperInfo>
+              </WrapperLeft>
+              <WrapperRigth>
                 <Info name={data.name} bio={data.biography} knowFor={data.known_for_department} placeOfBirth={data.place_of_birth} birthday={data.birthday} />
-                <div className="wrapper-listMovieTv">
-                  <h4 className="poster-info-h4">Conocido por</h4>
-                  <ListTvMovie id={data.id}/>
+                <div style={{ padding: '5px' }}>
+                  <H4>Conocido por</H4>
+                  <ListTvMovie modeDark={modeDark} id={data.id}/>
                 </div>
-              </div>
-            </div>
+              </WrapperRigth>
+            </Wrapper>
             )
           : ('...cargando')
       }
 
-    </div>
+    </>
   )
 }

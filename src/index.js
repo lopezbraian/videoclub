@@ -1,6 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
-import './styles/global-style.scss'
-import App from './route/App'
-
-render(<App/>, document.getElementById('app'))
+import App from './App'
+import { Provider } from 'react-redux'
+import { store } from './redux'
+render(
+  <Provider store= {store}>
+    <App/>
+  </Provider>
+  , document.getElementById('app'))

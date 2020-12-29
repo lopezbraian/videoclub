@@ -1,13 +1,15 @@
-.info-actor {
-  padding: 5px;
+import styled from 'styled-components'
+
+export const Wrapper = styled.div`
+  padding:5px;
   h3 {
-    margin: 0;
-    font-size: 5rem;
-    font-weight: 700;
+    margin:0;
+    font-size:5rem;
+    font-weight:700;
   }
-  
-  &__bio {
-    padding-top: 10px;
+`
+export const WrapperBio = styled.div`
+  padding-top: 10px;
     h4 {
       font-size: 2.5rem;
       font-weight: 700;
@@ -22,11 +24,4 @@
       padding-right: 20%;
     }
   }
-}
-
-.poster-info-h4{
-  font-size: 2rem;
-  margin: 0;
-  margin-bottom: 10px;
-  
-}
+`

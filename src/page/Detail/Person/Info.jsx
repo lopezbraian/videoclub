@@ -1,14 +1,14 @@
 import React from 'react'
-import './style-info.scss'
+import { Wrapper, WrapperBio } from './style-info'
 
 export const Info = ({ name, bio = '' }) => {
   return (
-    <div className="info-actor">
+    <Wrapper>
       <h3>{name}</h3>
-      <div className="info-actor__bio">
+      <WrapperBio>
         <h4>Biografía</h4>
         <p>{bio.slice(0, 400) || (`No tenemos una biografía sobre ${name}`)}</p>
-      </div>
-    </div>
+      </WrapperBio>
+    </Wrapper>
   )
 }

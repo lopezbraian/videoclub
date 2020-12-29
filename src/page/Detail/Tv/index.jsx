@@ -6,9 +6,9 @@ import { CirculesProgress } from '../../../components/Loading'
 import { Hero } from '../Common/Hero'
 import { Poster } from '../Common/Poster'
 import { Info } from '../Common/Info'
-import '../Common/style.scss'
+import { WrapperPoster, WrapperDetail } from '../Common/Style'
 
-export const Detail = () => {
+export const Detail = ({ modeDark }) => {
   const { id } = useParams()
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState({})
@@ -32,22 +32,22 @@ export const Detail = () => {
   }, [])
 
   return (
-    <div className="wrapper-detail wrapper-padding">
+    <WrapperDetail>
       {!loaded
         ? (
           <CirculesProgress/>
           )
         : (
-            <div>
+            <>
               <Hero path={data.backdrop_path}></Hero>
-              <div className="wrapper-poster-info">
+              <WrapperPoster modeDark={modeDark}>
                 <Poster id={data.id} img={data.poster_path} type='tv' watch = {true} ></Poster>
                 <Info title={data.name} overview={data.overview} genres={data.genres} releaseDate={data.releaseDate} vote={data.vote_average}></Info>
-              </div>
+              </WrapperPoster>
               <ListCast type={'tv'} id={data.id} />
-            </div>
+            </>
           )
       }
-    </div>
+    </WrapperDetail>
   )
 }

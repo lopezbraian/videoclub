@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Item } from './Item'
-import './style.scss'
-export const ListTvMovie = ({ id }) => {
+
+export const ListTvMovie = ({ id, modeDark }) => {
   const [data, setData] = useState([])
   useEffect(() => {
     async function getData () {
@@ -17,10 +17,10 @@ export const ListTvMovie = ({ id }) => {
     getData()
   }, [])
   return (
-    <div className="listTvMovie">
+    <div style={{ display: 'flex', overflowX: 'scroll', padding: '20px 0' }}>
       {data.map((d, index) => {
         return (
-          <Item key={index} data={d} type={d.media_type}/>
+          <Item modeDark={modeDark} key={index} data={d} type={d.media_type}/>
         )
       })}
     </div>

@@ -1,30 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Actor } from '../Actor'
-import './style.scss'
+import { H2, WrapperActor, Wrapper } from './style'
+import { connect } from 'react-redux'
 
-export const ListCast = ({ type, id }) => {
+const ListCastPres = ({ type, id, modeDark }) => {
   const [data, setData] = useState([])
   useEffect(() => {
     async function getData () {
-      let result
-      if (type === 'movie') {
-        result = await api.getCastMovie(id)
-      } else {
-        result = await api.getCastTv(id)
+      try {
+        let result
+        if (type === 'movie') {
+          result = await api.getCastMovie(id)
+        } else {
+          result = await api.getCastTv(id)
+        }
+        if (result) setData(result.cast)
+      } catch {
+
       }
-      if (result) setData(result.cast)
     }
     getData()
   }, [])
   return (
-    <>
-      <h2 style={{ textAlign: 'left', fontSize: '3.5rem', margin: '0', marginTop: '15px' }}>Elenco (10 de {data.length + 1})
+    <Wrapper>
+      <H2 modeDark = {modeDark} >Elenco (10 de {data.length + 1})
         <span style={{ display: 'block', fontSize: '1.5rem', color: 'lightGreen' }}>Ver todos</span>
-      </h2>
-      <div className="actor-wrapper">
-        {data.slice(0, 10).map((d, index) => (<Actor key={index} data={d} />))}
-      </div>
-    </>
+      </H2>
+      <WrapperActor>
+        {data.slice(0, 10).map((d, index) => (<Actor key={index} data={d} modeDark={modeDark} />))}
+      </WrapperActor>
+    </Wrapper>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    modeDark: state.ui.modeDark
+  }
+}
+export const ListCast = connect(mapStateToProps, {})(ListCastPres)

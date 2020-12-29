@@ -2,25 +2,41 @@ import React from 'react'
 import { getUrlImage } from '../../utils/getUrlFromImages'
 import { Vote } from '../Vote'
 import { Link } from 'react-router-dom'
-import './style.scss'
-export const Poster = ({ data, type }) => {
+import { connect } from 'react-redux'
+import {
+  Img,
+  WrapperPoster,
+  WrapperImage,
+  Vote as VoteStyle,
+  WrapperTitle,
+  Name,
+  Date
+} from './Style-Poster'
+
+const PosterPres = ({ data, type, modeDark }) => {
   return (
-      <div className="poster">
-        <div className="poster__image">
+      <WrapperPoster>
+        <WrapperImage>
           <Link to={type === 'movie' ? `/movie/${data.id}` : `/tv/${data.id}` }>
-            <img className="poster__image__img" width="150px" height="200px" src={getUrlImage(200, data.poster_path)}></img>
-            <div className="poster__image__vote">
+            <Img width="150px" height="200px" src={getUrlImage(200, data.poster_path)}></Img>
+            <VoteStyle>
               <Vote vote={data.vote_average}/>
-            </div>
+            </VoteStyle>
           </Link>
-        </div>
-        <div className="poster__title">
-          <p className="poster__title__name">{data.title || data.name}</p>
+        </WrapperImage>
+        <WrapperTitle>
+          <Name modeDark = {modeDark} >{data.title || data.name}</Name>
           {type === 'tv' && (
-            <p className="poster__title__date">Primer episodio</p>
+            <Date modeDark = {modeDark} >Primer episodio</Date>
           )}
-          <p className="poster__title__date">{data.release_date || data.first_air_date}</p>
-        </div>
-      </div>
+          <Date modeDark = {modeDark} >{data.release_date || data.first_air_date}</Date>
+        </WrapperTitle>
+      </WrapperPoster>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    modeDark: state.ui.modeDark
+  }
+}
+export const Poster = connect(mapStateToProps, {})(PosterPres)
