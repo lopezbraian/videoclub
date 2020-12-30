@@ -34,9 +34,16 @@ export const WrapperGenero = styled.div`
 export const WrapperVote = styled.div`
   display:flex;
   justify-content:center;
+  margin-bottom: 20px;
+  @media screen and (min-width:720px ){
+    margin-top:10px;
+    margin-bottom: 0px;
+  }
 `
 
 export const WrapperResumen = styled.div`
+  background-color : var(--BACKGROUND_THEME_DARK);
+  padding-bottom:25px;
   h4 {
     margin-left:20px;
     font-size:2rem;
@@ -47,6 +54,8 @@ export const WrapperResumen = styled.div`
     font-size:1.4rem;
   }
   @media screen and (min-width:720px) { 
+    background :none;
+    padding-bottom:0;
     h4 {
       margin-left:0px;
     }

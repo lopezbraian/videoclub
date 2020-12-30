@@ -9,7 +9,9 @@ export const Actor = ({ data, modeDark }) => {
     <WrapperActor >
       <Link to = {`/person/${data.id}`}>
         <P modeDark={modeDark} style={{ marginBottom: '10px' }}>
-          PERSONAJE <br></br> ({data.character})
+          {data.character
+            ? data.character
+            : ''}
         </P>
         <WrapperImage>
           <img src={data.profile_path ? getUrlImage(200, data.profile_path) : (imageDefault)}></img>

@@ -16,10 +16,8 @@ export const H2 = styled.h2`
 `
 export const Wrapper = styled.div`
   background-color : var(--BLUE_DARK);
-  margin-top:35px;
   padding-top:20px;
   padding:10px;
-  border-radius: 10px 10px 0 0 ;
 `
 export const WrapperActor = styled.div`
   height:100%;
