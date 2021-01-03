@@ -29,7 +29,7 @@ export const WrapperForm = styled.form`
     text-transform:uppercase;
     outline:none;
     border:none;
-    font-size:1.4rem;
+    font-size:1.2rem;
     /* background-color: var(--BLUE_DARK); */
     background : var(--BUTTON);
     color:white;

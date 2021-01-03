@@ -14,14 +14,16 @@ const ButtonTheme = (props) => {
     props.onClickChange(event.target.checked)
   }
   return (
-    <div className="wrapp-button-theme">
-      <WbSunnyIcon style={{ color: 'white' }}/>
-      <Switch
-          checked={state}
-          onChange={handleChange}
-          name="checkedA"
-      />
-      <Brightness2Icon style={{ color: 'white' }}/>
+    <div className="wrap-button-theme">
+      <div className="button-theme">
+        <WbSunnyIcon style={{ color: 'white' }}/>
+        <Switch
+            checked={state}
+            onChange={handleChange}
+            name="checkedA"
+        />
+        <Brightness2Icon style={{ color: 'white' }}/>
+      </div>
     </div>
   )
 }

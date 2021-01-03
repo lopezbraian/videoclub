@@ -1,4 +1,8 @@
-.wrapp-button-theme {
-  display: flex;
-  align-items: center;
+.wrap-button-theme {
+  position: absolute;
+  left: 10px;
+  .button-theme {
+    display: flex;
+    align-items: center;
+  }
 }
