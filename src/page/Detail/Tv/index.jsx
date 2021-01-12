@@ -42,7 +42,7 @@ export const Detail = ({ modeDark }) => {
               <Hero path={data.backdrop_path}></Hero>
               <WrapperPoster modeDark={modeDark}>
                 <Poster id={data.id} img={data.poster_path} type='tv' watch = {true} ></Poster>
-                <Info title={data.name} overview={data.overview} genres={data.genres} releaseDate={data.releaseDate} vote={data.vote_average}></Info>
+                <Info title={data.name} overview={data.overview} genres={data.genres} releaseDate={data.release_date} vote={data.vote_average}></Info>
               </WrapperPoster>
               <ListCast type={'tv'} id={data.id} />
             </>
