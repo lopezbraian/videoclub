@@ -18,7 +18,6 @@ export const Detail = ({ modeDark }) => {
       try {
         const res = await api.getDatailMovie(id)
         if (res) {
-          console.log(res)
           setData(res)
           setLoaded(true)
         } else {

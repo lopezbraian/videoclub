@@ -5,13 +5,22 @@ import { Link } from 'react-router-dom'
 import { WrapperImage, WrapperActor, P } from './style'
 
 export const Actor = ({ data, modeDark }) => {
+  console.log(data)
+
+  function rol () {
+    let rol = ''
+    if (data.roles && data.roles.length > 0) {
+      rol = data.roles[0].character
+    } else if (data.character) {
+      rol = data.character
+    }
+    return rol
+  }
   return (
     <WrapperActor >
-      <Link to = {`/person/${data.id}`}>
+      <Link style={{ textDecoration: 'none' }} to = {`/person/${data.id}`}>
         <P modeDark={modeDark} style={{ marginBottom: '10px' }}>
-          {data.character
-            ? data.character
-            : ''}
+          {rol()}
         </P>
         <WrapperImage>
           <img src={data.profile_path ? getUrlImage(200, data.profile_path) : (imageDefault)}></img>

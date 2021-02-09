@@ -16,10 +16,10 @@ export const Filter = ({ modeDark, types, setSelectType, selectType }) => {
   }
   return (
     <Wrapper modeDark={modeDark}>
-      <h3>Resultados de la busqueda</h3>
+      <h3>Resultados de la búsqueda</h3>
       <WrapperFilterList modeDark={modeDark}>
         <ul>
-          <li onClick={() => { handleChange('movie') }} style={isSelected('movie')}>Peliculas <span>{types.movie}</span></li>
+          <li onClick={() => { handleChange('movie') }} style={isSelected('movie')}>Películas <span>{types.movie}</span></li>
           <li onClick={() => { handleChange('tv') }} style={isSelected('tv')}>Series <span>{types.tv}</span></li>
           <li onClick={() => { handleChange('person') }} style={isSelected('person')}>Personas <span>{types.person}</span></li>
         </ul>

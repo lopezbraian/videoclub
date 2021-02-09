@@ -34,14 +34,15 @@ export const SearchPres = ({ modeDark }) => {
   const query = useQuery().get('query')
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
-  const [selectType, setSelectType] = useState('movie')
   const types = useGetTypes(data)
+  const [selectType, setSelectType] = useState('tv')
   useEffect(() => {
     async function getData () {
       if (query === '') return false
       try {
         setLoading(true)
         const result = await api.querySearch(query)
+        console.log(result)
         if (result) { setData(result) }
         setLoading(false)
       } catch {
@@ -60,9 +61,7 @@ export const SearchPres = ({ modeDark }) => {
             <InputSearch initialValue={query}/>
           </WrapperSearch>
           <Filter modeDark={modeDark} types={types} setSelectType={setSelectType} selectType={selectType}></Filter>
-          <div style={{ padding: '20px' }}>
-            <Results modeDark={modeDark} data = {data} selectType={selectType}></Results>
-          </div>
+          <Results modeDark={modeDark} data = {data} selectType={selectType}></Results>
         </>
           )}
     </>

@@ -8,7 +8,7 @@ export const Person = ({ data }) => {
   const url = getUrlImage(200, data.profile_path) || imageDefault
   return (
     <Link to={`/person/${data.id}`} className="person">
-      <img src={url} heigth="150px" width="100px"></img>
+      <img src={url} height="150px" width="100px"></img>
       <div className="person__info">
         <h4>{data.name}</h4>
         <p>{data.known_for_department} • </p>

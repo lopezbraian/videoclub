@@ -7,8 +7,7 @@
     "build": "webpack --mode production",
     "build:dll": "webpack --config ./webpack.vendor.config.js --mode production",
     "dev": "webpack serve --config ./webpack.dev.config.js",
-    "start": "webpack --mode production",
-    "server": "json-server --port 3000 --watch db.json --static ./dist"
+    "start": "webpack --mode production"
   },
   "repository": {
     "type": "git",

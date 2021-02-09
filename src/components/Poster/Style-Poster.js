@@ -10,10 +10,13 @@ export const WrapperImage = styled.div`
   position: relative;
 `
 export const Img = styled.img`
-  border-radius: 10px;
   object-fit: cover;
   width: 150px;
   height: 250px;
+  transition: all .5s ease-in-out;
+  &:hover {
+    transform:scale(1.1)
+  }
 `
 export const Vote = styled.div`
   position: absolute;
@@ -29,7 +32,6 @@ const P = styled.p`
 `
 export const Name = styled(P)`
   margin: 0;
-  height:36px;
   overflow:hidden;
   font-size: 1.5rem;
   font-weight: bold;
