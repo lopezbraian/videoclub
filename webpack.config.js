@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 const webpack = require('webpack')
 module.exports = {
@@ -16,17 +17,10 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'https://videoclub-tan.vercel.app/',
     filename: 'bundle.[hash].js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    open: true,
-    hot: true,
-    historyApiFallback: true
   },
   module: {
     rules: [
@@ -54,12 +48,18 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          outputPath: 'assets/'
+          outputPath: 'assets/',
+          name: '[name][hash].[ext]'
         }
       }
     ]
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'public/favicon.ico'), to: path.resolve(__dirname, 'dist/favicon.ico') }
+      ]
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css'
     }),
