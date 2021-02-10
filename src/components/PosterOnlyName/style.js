@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
     height:100%;
     object-fit:cover;
     transition : all .5s ease-in-out;
-    border-radius: 5px ;
   }
   img:hover {
     transform: scale(1.05)
@@ -31,14 +30,15 @@ export const WrapperInfo = styled.div`
   h5 {
     margin:0;
   }
+  color: white;
+
   @media screen and (min-width:768px) { 
     font-size: 1.4rem;
     h4 {
-    margin-top:0;
+      margin-top:0;
+    }
+    h5 {
+      margin:10px 0;
+    }
   }
-  h5 {
-    margin:10px 0;
-  }
-  }
-  color: ${props => props.modeDark ? 'white' : 'black'}
 `

@@ -7,8 +7,7 @@ import { Hero } from '../Common/Hero'
 import { Poster } from '../Common/Poster'
 import { Info } from '../Common/Info'
 import { WrapperPoster, WrapperDetail } from '../Common/Style'
-import { Video } from '../Movie/video'
-import { Button } from '@material-ui/core'
+import { Video } from '../../../components/Video'
 
 export const Detail = ({ modeDark }) => {
   const { id } = useParams()
@@ -16,7 +15,6 @@ export const Detail = ({ modeDark }) => {
   const [openVideo, setOpenVideo] = useState(false)
   const [data, setData] = useState({})
   const ref = useRef(null)
-  const ref2 = useRef(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -45,7 +43,7 @@ export const Detail = ({ modeDark }) => {
     setOpenVideo(true)
   }
   return (
-    <WrapperDetail ref={ref}>
+    <WrapperDetail ref={ref} videoOn={openVideo}>
       {!loaded
         ? (
           <CirculesProgress/>
@@ -56,7 +54,7 @@ export const Detail = ({ modeDark }) => {
               <WrapperPoster modeDark={modeDark}>
                 <Poster id={data.id} img={data.poster_path} type='tv' watch = {true} ></Poster>
                 <Info openVideo = {handleOpen} title={data.name} overview={data.overview} genres={data.genres} releaseDate={data.release_date} vote={data.vote_average}></Info>
-                {openVideo && (<Video idVideo={data.id} type='tv'></Video>)}
+                {openVideo && (<Video closeVideo={closeVideo} idVideo={data.id} type='tv'></Video>)}
               </WrapperPoster>
               <ListCast type={'tv'} id={data.id} />
             </>

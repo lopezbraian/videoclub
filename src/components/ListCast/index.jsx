@@ -23,6 +23,7 @@ const ListCastPres = ({ type, id, modeDark }) => {
     }
     getData()
   }, [])
+  if (data.length === 0) return null
   return (
     <Wrapper>
       <H2 modeDark = {modeDark} >Elenco (10 de {data.length + 1})

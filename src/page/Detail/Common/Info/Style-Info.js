@@ -58,11 +58,13 @@ export const WrapperResumen = styled.div`
   background-color: var(--BACKGROUND_THEME_DARK);
   padding-bottom: 25px;
   h4 {
+    padding-top:20px;
     margin-top: 0px;
     margin-left: 20px;
     font-size: 2rem;
   }
   p {
+    min-width:325px;
     max-height:150px;
     overflow-y:auto;
     margin: 0;

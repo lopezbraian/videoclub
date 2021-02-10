@@ -24,12 +24,13 @@ export const Info = ({ title, overview, genres, releaseDate, vote, openVideo }) 
           <span>Reproducir Trailer</span>
         </button>
       </WrapperVote>
-      <WrapperResumen>
+      {overview !== '' && (<WrapperResumen>
         <h4>Resumen</h4>
         <p>
           {overview || ('No tenemos un resumen')}
         </p>
-      </WrapperResumen>
+      </WrapperResumen>)}
+
     </Wrapper>
   )
 }

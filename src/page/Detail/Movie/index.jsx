@@ -6,9 +6,8 @@ import { ListCast } from '../../../components/ListCast'
 import { CirculesProgress } from '../../../components/Loading'
 import { Poster } from '../Common/Poster'
 import { Info } from '../Common/Info'
-import { Video } from './video'
+import { Video } from '../../../components/Video'
 import { WrapperDetail, WrapperPoster } from '../Common/Style'
-import { Button } from '@material-ui/core'
 
 export const Detail = ({ modeDark }) => {
   const { id } = useParams()
@@ -60,7 +59,7 @@ export const Detail = ({ modeDark }) => {
               <WrapperPoster modeDark={modeDark}>
                 <Poster id={data.id} img={data.poster_path} type='movie' watch = {true} ></Poster>
                 <Info openVideo = {handleOpen} title={data.title} overview={data.overview} genres={data.genres} releaseDate={data.release_date} vote={data.vote_average}></Info>
-                {openVideo && (<Video idVideo={data.id} type='movie'></Video>)}
+                {openVideo && (<Video closeVideo={closeVideo} idVideo={data.id} type='movie'></Video>)}
               </WrapperPoster>
               <ListCast type={'movie'} id={data.id} />
             </>

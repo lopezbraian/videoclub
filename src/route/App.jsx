@@ -9,7 +9,7 @@ import { Detail } from '../page/Detail'
 
 import { Search } from '../page/Search'
 import { Error404 } from '../page/Error'
-import { Layout } from '../layout'
+import Layout from '../layout'
 export default function App () {
   return (
     <Router>
