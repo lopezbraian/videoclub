@@ -7,7 +7,7 @@ import { WrapperInfo, Wrapper } from './style-item'
 export const Item = ({ data, type, modeDark }) => {
   const url = getUrlImage(200, data.poster_path) || imageDefault
   return (
-    <Link to={type === 'movie' ? `/movie/${data.id}` : (`/tv/${data.id}`)}>
+    <Link style={{ textDecoration: 'none' }} to={type === 'movie' ? `/movie/${data.id}` : (`/tv/${data.id}`)}>
       <Wrapper>
           <img src={url} heigth="250px" width="250px"></img>
           <WrapperInfo modeDark ={modeDark} >

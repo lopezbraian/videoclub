@@ -1,8 +1,8 @@
 import React from 'react'
 import { Vote } from '../../../../components/Vote'
 import { WrapperTitle, Wrapper, WrapperResumen, WrapperVote, WrapperGenero } from './Style-Info'
-
-export const Info = ({ title, overview, genres, releaseDate, vote }) => {
+import { PlayArrow } from '@material-ui/icons'
+export const Info = ({ title, overview, genres, releaseDate, vote, openVideo }) => {
   return (
     <Wrapper>
       <WrapperTitle>
@@ -17,6 +17,12 @@ export const Info = ({ title, overview, genres, releaseDate, vote }) => {
       </WrapperTitle>
       <WrapperVote>
         <Vote vote={vote}></Vote>
+        <button
+        onClick = {openVideo}
+        >
+          <span><PlayArrow></PlayArrow></span>
+          <span>Reproducir Trailer</span>
+        </button>
       </WrapperVote>
       <WrapperResumen>
         <h4>Resumen</h4>

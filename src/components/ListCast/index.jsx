@@ -15,6 +15,7 @@ const ListCastPres = ({ type, id, modeDark }) => {
         } else {
           result = await api.getCastTv(id)
         }
+        if (!result) return false
         if (result) setData(result.cast)
       } catch {
 

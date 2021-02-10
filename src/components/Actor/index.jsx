@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 import { WrapperImage, WrapperActor, P } from './style'
 
 export const Actor = ({ data, modeDark }) => {
-  console.log(data)
-
   function rol () {
     let rol = ''
     if (data.roles && data.roles.length > 0) {

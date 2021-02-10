@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import { Poster } from '../Poster'
 import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
@@ -23,6 +23,7 @@ export const ListTrendig = () => {
       try {
         setLoading(true)
         const res = await api.getTrending(type, time)
+        if (!res) return false
         setData(res.results)
         setLoading(false)
       } catch {

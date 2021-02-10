@@ -17,6 +17,7 @@ export const ListMovies = () => {
   useEffect(() => {
     async function getData () {
       const res = await api.queryMoviePopular()
+      if (!res) return false
       setData(res.results)
       setLoaded(true)
     }

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -34,11 +34,24 @@ export const WrapperGenero = styled.div`
 export const WrapperVote = styled.div`
   display: flex;
   justify-content: center;
+  align-items:center;
   margin-bottom: 20px;
   @media screen and (min-width: 720px) {
     margin-top: 10px;
     margin-bottom: 0px;
   }
+  button {
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:20px;
+    border:0;
+    border-radius:10px;
+    height:30px;
+    outline:none;
+  }
+ 
 `
 
 export const WrapperResumen = styled.div`

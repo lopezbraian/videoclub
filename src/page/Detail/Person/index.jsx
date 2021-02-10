@@ -16,6 +16,7 @@ export const PersonDetail = ({ modeDark }) => {
     async function getData () {
       try {
         const result = await api.getPerson(id)
+        if (!result) return false
         setData(result)
         setLoaded(true)
       } catch {

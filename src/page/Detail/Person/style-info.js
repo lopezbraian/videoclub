@@ -16,12 +16,13 @@ export const WrapperBio = styled.div`
       margin: 0;
     }
     p {
+      max-height:200px;
+      overflow:auto;
       margin: 0;
       font-size: 1.5rem;
       font-weight: 400;
       line-height: 20px;
       color: grey;
-      padding-right: 20%;
     }
   }
 `
