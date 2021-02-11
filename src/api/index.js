@@ -122,7 +122,7 @@ const getPersonCredits = async (personId) => {
 }
 const getVideo = async (type, id) => {
   try {
-    const url = `${URL_BASE}/${type}/${id}/videos?api_key=${KEY}`
+    const url = `${URL_BASE}/${type}/${id}/videos?api_key=${KEY}&${LANGUAGE}-MX`
     const resp = await axios.get(url)
     return resp.data
   } catch (err) {
