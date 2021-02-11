@@ -5,6 +5,7 @@ export const WrapperPoster = styled.div`
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
+  height:100%;
 `
 export const WrapperImage = styled.div`
   position: relative;
