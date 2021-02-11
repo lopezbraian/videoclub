@@ -1,10 +1,17 @@
 .wrap-poster-skeleton{
+  margin-top: 20px;
   display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  position:relative;
+  height:100%;
 }
 .poster-skeleton {
   margin-right: 20px;
-  height: 350px;
-  width: 150px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  height:100%;
   &__image {
     position: relative;
     &__img {
@@ -13,18 +20,18 @@
       animation: loading infinite 2s;
       border-radius: 10px;
       width: 150px;
+      height: 250px;
     }
     &__vote {
       position: absolute;
-      bottom:-33px;
+      bottom:-25px;
     }
   }
 
   &__title {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     padding: 10px;
-    height: 10px;
     &__name {
       background: linear-gradient(270deg, #ffffff, #8d8d8d);
       background-size: 400% 400%;

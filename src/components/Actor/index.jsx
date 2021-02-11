@@ -21,7 +21,7 @@ export const Actor = ({ data, modeDark }) => {
           {rol()}
         </P>
         <WrapperImage>
-          <img src={data.profile_path ? getUrlImage(200, data.profile_path) : (imageDefault)}></img>
+          <img alt="actor" src={data.profile_path ? getUrlImage(200, data.profile_path) : (imageDefault)}></img>
         </WrapperImage>
         <P modeDark={modeDark} style={{ marginTop: '10px' }}>
           {data.name} {data.total_episode_count && (` (EP ${data.total_episode_count})`)}

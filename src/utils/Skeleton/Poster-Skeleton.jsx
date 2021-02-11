@@ -15,7 +15,7 @@ export const PosterSkeleton = () => {
         return (
           <div key={index} className="poster-skeleton">
             <div className="poster-skeleton__image">
-              <img className="poster-skeleton__image__img" width="150px" height="200px" src={data.path_fake}></img>
+              <img alt="load" className="poster-skeleton__image__img" width="150px" height="200px" src={data.path_fake}></img>
               <div className="poster-skeleton__image__vote">
                 <Vote />
               </div>
