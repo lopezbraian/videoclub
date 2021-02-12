@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size : 62.5%;
   }
+
+
   body {
     background: ${props => props.themeDark ? 'var(--BACKGROUND_THEME_DARK)' : 'var(-BACKGROUND_THEME_WHITE)'} ;
     width: 100%;

@@ -8,5 +8,9 @@ export const Wrapper = styled.div`
     text-align: center;
     max-width:600px;
     margin: 0 auto;
+    button {
+        position:absolute;
+        right: 0;
+    }
 
 `

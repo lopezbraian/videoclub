@@ -1,16 +1,18 @@
 import React from 'react'
-
 import useIsVisible from '../../hooks/useIsVisible'
+import Similar from './SimilarWithLazy'
 import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
 
-import { ListTv } from './ListTv'
-
-export default function ListTvLazyLoad () {
+export default function SimilarWithLazy (props) {
   const { show, ref } = useIsVisible()
-
   return (
     <div ref={ref}>
-      {show ? <ListTv></ListTv> : <PosterSkeleton></PosterSkeleton>}
+      {show
+        ? (
+        <Similar {...props} ></Similar>
+          )
+        : (<PosterSkeleton></PosterSkeleton>) }
     </div>
+
   )
 }

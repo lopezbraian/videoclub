@@ -1,8 +1,9 @@
 import React from 'react'
 import { Vote } from '../../../../components/Vote'
-import { WrapperTitle, Wrapper, WrapperResumen, WrapperVote, WrapperGenero } from './Style-Info'
+import { WrapperTitle, WrapperProducer, Wrapper, WrapperResumen, WrapperVoteAndTrailer, WrapperGenero } from './Style-Info'
 import { PlayArrow } from '@material-ui/icons'
-export const Info = ({ idVideo, title, overview, genres, releaseDate, vote, openVideo }) => {
+
+export const Info = ({ idVideo, title, overview, genres, releaseDate, vote, openVideo, modeDark }) => {
   return (
     <Wrapper>
       <WrapperTitle>
@@ -15,22 +16,28 @@ export const Info = ({ idVideo, title, overview, genres, releaseDate, vote, open
           })}
         </WrapperGenero>
       </WrapperTitle>
-      <WrapperVote>
+      <WrapperVoteAndTrailer>
         <Vote vote={vote}></Vote>
+        <div>
         {idVideo && (<button
         onClick = {openVideo}
         >
           <span><PlayArrow></PlayArrow></span>
           <span>Reproducir Trailer</span>
         </button>)}
+      </div>
+      </WrapperVoteAndTrailer>
 
-      </WrapperVote>
-      {overview !== '' && (<WrapperResumen>
+      {overview !== '' && (<WrapperResumen modeDark={modeDark}>
         <h4>Resumen</h4>
         <p>
           {overview || ('No tenemos un resumen')}
         </p>
       </WrapperResumen>)}
+
+      <WrapperProducer>
+
+      </WrapperProducer>
 
     </Wrapper>
   )

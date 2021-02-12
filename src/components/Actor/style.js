@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const WrapperActor = styled.div`
   min-width: 150px;
   height: 340px;
-  color: white;
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
@@ -13,7 +12,7 @@ export const WrapperActor = styled.div`
 export const P = styled.p`
   font-size: 1.3rem;
   height: 30px;
-  color : white;
+  color : ${props => props.modeDark ? 'white' : 'black'};
   margin:0;
   font-weight:lighter;
 `

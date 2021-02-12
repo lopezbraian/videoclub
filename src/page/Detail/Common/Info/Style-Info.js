@@ -31,7 +31,10 @@ export const WrapperGenero = styled.div`
     margin-left: 5px;
   }
 `
-export const WrapperVote = styled.div`
+export const WrapperProducer = styled.div`
+  border:1px solid black;
+`
+export const WrapperVoteAndTrailer = styled.div`
   display: flex;
   justify-content: center;
   align-items:center;
@@ -55,7 +58,8 @@ export const WrapperVote = styled.div`
 `
 
 export const WrapperResumen = styled.div`
-  background-color: var(--BACKGROUND_THEME_DARK);
+  background-color: ${props => props.modeDark ? ('var(--BACKGROUND_THEME_DARK)') : ('#FFFFFF')};
+  color: ${props => props.modeDark ? ('white') : ('black')};
   padding-bottom: 25px;
   h4 {
     padding-top:20px;
@@ -74,13 +78,14 @@ export const WrapperResumen = styled.div`
   @media screen and (min-width: 720px) {
     background: none;
     padding-bottom: 0;
+    color:white;
     h4 {
       margin-top:20px;
       margin-left: 0px;
     }
     p {
       padding: 0;
-      max-width: 600px;
+      max-width: 400px;
       font-size: 1.6rem;
     }
   }

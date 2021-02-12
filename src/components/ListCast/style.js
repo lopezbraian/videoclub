@@ -5,17 +5,11 @@ export const H2 = styled.h2`
   font-size:3.5rem;
   margin:0;
   margin-top:15px;
-  /* color : ${props => props.modeDark ? 'white' : 'black'};
-   */
-  color:white;
-  span {
-    display:block;
-    font-size:1.5rem;
-    color:lightGreen;
-  }
+  color : ${props => props.modeDark ? 'white' : 'black'};
+
 `
 export const Wrapper = styled.div`
-  background-color : var(--BLUE_DARK);
+  background-color: ${props => props.modeDark ? ('var(--BACKGROUND_THEME_DARK)') : ('#FFFFFF')};
   padding-top:20px;
   padding:10px;
 `

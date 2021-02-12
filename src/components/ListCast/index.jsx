@@ -25,10 +25,8 @@ const ListCastPres = ({ type, id, modeDark }) => {
   }, [])
   if (data.length === 0) return null
   return (
-    <Wrapper>
-      <H2 modeDark = {modeDark} >Elenco (10 de {data.length + 1})
-        <span style={{ display: 'block', fontSize: '1.5rem', color: 'lightGreen' }}>Ver todos</span>
-      </H2>
+    <Wrapper modeDark = {modeDark}>
+      <H2 modeDark = {modeDark} >Personajes Principales</H2>
       <WrapperActor>
         {data.slice(0, 10).map((d, index) => (<Actor key={index} data={d} modeDark={modeDark} />))}
       </WrapperActor>

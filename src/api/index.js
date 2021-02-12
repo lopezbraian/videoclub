@@ -1,8 +1,18 @@
 import axios from 'axios'
 const KEY = '2efd2929da5c71965ff2ae70228e1720'
 const URL_BASE = 'https://api.themoviedb.org/3'
-const LANGUAGE = 'language=es'
+const LANGUAGE = 'language=es-MX'
 const REGION = '&region=AR'
+
+const getSimilar = async (type, id) => {
+  try {
+    const url = `${URL_BASE}/${type}/${id}/similar?api_key=${KEY}&${LANGUAGE}`
+    const resp = await axios.get(url)
+    return resp.data
+  } catch (err) {
+    return false
+  }
+}
 
 const querySearch = async (query) => {
   try {
@@ -143,5 +153,6 @@ export default {
   getTrending,
   getPerson,
   getPersonCredits,
-  getVideo
+  getVideo,
+  getSimilar
 }

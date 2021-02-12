@@ -7,13 +7,13 @@ import { WrapPoster } from '../../styles/Style-WrapPoster'
 import { Switch } from './Switch'
 import { WrapperHeaderList, WrapperSwitch } from './Style-ListTrending'
 import { useScroll } from '../../hooks/useScroll'
-import bg_trending from '../../images/trending-bg.svg'
+import bgTrending from '../../images/trending-bg.svg'
 
 const styleTrending = {
-  backgroundImage: `url(${bg_trending})`,
+  backgroundImage: `url(${bgTrending})`,
   backgroundRepeat: 'no-repeat',
-  backgroundSize:'cover',
-  backgroundPosition:'bottom',
+  backgroundSize: 'cover',
+  backgroundPosition: 'bottom'
 }
 
 export const ListTrendig = () => {

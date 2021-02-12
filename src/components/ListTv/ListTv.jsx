@@ -11,7 +11,6 @@ export const ListTv = () => {
   const [data, setData] = useState([])
   const [scroll, setScroll] = useScroll()
 
-
   function handleScroll (e) {
     setScroll(e.target)
   }
