@@ -6,14 +6,17 @@ import { Video } from '../../../../components/Video'
 import { Poster } from '../Poster'
 import { Info } from '../Info'
 
-export const Hero = ({ data, modeDark, type }) => {
+export const Hero = ({ data, modeDark, type, refElement }) => {
   const [openVideo, setopenVideo] = useState(false)
   const imgSrcHero = getUrlImage('original', data.backdrop_path)
 
   const [idVideoYT, setIdVideo] = useGetVideo(type)
 
   useEffect(() => {
+    refElement.current.addEventListener('click', closeVideo)
     setIdVideo(data.id)
+
+    return () => window.removeEventListener('click', closeVideo)
   }, [data.id])
 
   const closeVideo = () => {

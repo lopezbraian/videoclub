@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { Hero } from '../Common/Hero'
 import api from '../../../api/index'
@@ -11,7 +11,7 @@ export const Detail = ({ modeDark }) => {
   const { id } = useParams()
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState({})
-  console.log(data)
+  const ref = useRef(null)
   useEffect(() => {
     window.scrollTo(0, 0)
     async function getData () {
@@ -31,14 +31,14 @@ export const Detail = ({ modeDark }) => {
   }, [id])
 
   return (
-    <WrapperDetail>
+    <WrapperDetail ref={ref}>
       {!loaded
         ? (
           <CirculesProgress/>
           )
         : (
           <>
-            <Hero data ={data} modeDark = {modeDark} type ='movie'></Hero>
+            <Hero refElement={ref} data ={data} modeDark = {modeDark} type ='movie'></Hero>
             <ListCast type={'movie'} id={data.id} />
             <Similar type='movie' id={data.id} modeDark = {modeDark}></Similar>
           </>

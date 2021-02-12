@@ -22,7 +22,8 @@ const ListCastPres = ({ type, id, modeDark }) => {
       }
     }
     getData()
-  }, [])
+  }, [id])
+
   if (data.length === 0) return null
   return (
     <Wrapper modeDark = {modeDark}>
