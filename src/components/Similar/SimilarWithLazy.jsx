@@ -26,6 +26,9 @@ export default function Similar ({ type, id, modeDark }) {
 
     getData()
   }, [])
+  if (data.length === 0) {
+    return null
+  }
   return (
     <>
       <H2 modeDark = {modeDark}>Titulos Similares</H2>
