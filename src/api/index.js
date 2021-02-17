@@ -1,5 +1,5 @@
 import axios from 'axios'
-const KEY = '2efd2929da5c71965ff2ae70228e1720'
+const KEY = ''
 const URL_BASE = 'https://api.themoviedb.org/3'
 const LANGUAGE = 'language=es-MX'
 const REGION = '&region=AR'
