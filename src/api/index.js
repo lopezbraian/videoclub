@@ -1,5 +1,5 @@
 import axios from 'axios'
-const KEY = ''
+const KEY = process.env.REACT_APP_KEY
 const URL_BASE = 'https://api.themoviedb.org/3'
 const LANGUAGE = 'language=es-MX'
 const REGION = '&region=AR'
