@@ -25,7 +25,7 @@ export default function Similar ({ type, id, modeDark }) {
     }
 
     getData()
-  }, [])
+  }, [type, id])
   if (data.length === 0) {
     return null
   }
