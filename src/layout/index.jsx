@@ -10,7 +10,7 @@ const Layout = ({ children, modeDark }) => {
         {children}
       </div>
       <footer style={{ marginBottom: '30px' }}>
-        <p style={{ textAlign: 'center', color: modeDark ? 'white' : 'black' }}>Hecho con <span>💙</span> by Braian Emanuel López</p>
+        <p style={{ textAlign: 'center', color: modeDark ? 'white' : 'black' }}>Braian Emanuel López</p>
         <a style={{ textDecoration: 'none', display: 'block', cursor: 'pointer', textAlign: 'center', color: modeDark ? 'white' : 'black' }} href="https://www.themoviedb.org/" target='__blank'>Datos obtenidos gracias a themoviedb </a>
       </footer>
     </>

@@ -13,7 +13,6 @@ const getSimilar = async (type, id) => {
     return false
   }
 }
-
 const querySearch = async (query) => {
   try {
     const resp = await axios.get(`${URL_BASE}/search/multi?api_key=${KEY}&query=${query}&${LANGUAGE}`)

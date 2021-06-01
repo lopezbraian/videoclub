@@ -1,48 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
-import { Poster } from '../../components/Poster'
-import { WrapperDetail, H2 } from './style'
+import { PosterSkeleton } from '../../utils/Skeleton/Poster-Skeleton'
+import { WrapperList } from '../WrapperList'
+import { H2 } from './style'
 
 export default function Similar ({ type, id, modeDark }) {
   const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     async function getData () {
       try {
         const resp = await api.getSimilar(type, id)
         if (resp) {
-          console.log(resp)
           setData(resp.results)
-          setLoading(false)
+          setLoaded(true)
         } else {
-          setLoading(false)
           return false
         }
       } catch (error) {
-        console.log(error)
       }
     }
 
     getData()
   }, [type, id])
+
   if (data.length === 0) {
     return null
   }
+
+  console.log(type, id)
   return (
     <>
       <H2 modeDark = {modeDark}>Titulos Similares</H2>
-      <WrapperDetail>
-        {loading
-          ? ('Cargando')
+        {loaded
+          ? (
+            <WrapperList data={data} type={type}></WrapperList>
+            )
           : (
-              data.map((d, index) => {
-                return (
-                  <Poster key={index} data={d} type={type}></Poster>
-                )
-              })
+              <PosterSkeleton>  </PosterSkeleton>
             )}
-      </WrapperDetail>
     </>
 
   )
