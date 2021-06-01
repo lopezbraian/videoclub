@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 export const WrapperForm = styled.form`
   position: relative;
-  width:350px;
+  min-width:320px;
+  max-width: 400px;
+  height: 40px;
+  width: 100%;
   margin: 0 auto;
-  border-radius: 30px;
   display:flex;
-  border-radius:5px;
+  justify-content: center;
   overflow:hidden;
   border: ${props => !props.modeDark
     ? '.5px solid black'
@@ -14,24 +16,27 @@ export const WrapperForm = styled.form`
     : 'none'
       };
   input {
+    width: 80%;
     border:none;
-    width:100%;
     outline: none;
     height: 40px;
     padding-left:10px;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
+    border-radius:0;
+    font-size: 2.5rem;
+    
   }
 
-  input::placeholder {
-    font-size: 1.2rem;
+  input::placeholder { 
+    font-size: 1.8rem;
   }
   button {
-    width:60px;
+    border-radius:0;
+    width: 20%;
     border: none;
+    height: 40px;
     outline: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     background: var(--BUTTON);
     color: white;
   }
