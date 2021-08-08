@@ -1,43 +1,27 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const WrapperForm = styled.form`
   position: relative;
-  min-width:320px;
+  min-width: 320px;
   max-width: 400px;
   height: 40px;
   width: 100%;
   margin: 0 auto;
-  display:flex;
+  display: flex;
   justify-content: center;
-  overflow:hidden;
-  border: ${props => !props.modeDark
-    ? '.5px solid black'
-
-    : 'none'
-      };
+  border-radius: 5px;
+  overflow: hidden;
   input {
     width: 80%;
-    border:none;
+    border: none;
     outline: none;
     height: 40px;
-    padding-left:10px;
-    border-radius:0;
+    padding-left: 10px;
+    border-radius: 0;
     font-size: 2.5rem;
-    
   }
 
-  input::placeholder { 
+  input::placeholder {
     font-size: 1.8rem;
   }
-  button {
-    border-radius:0;
-    width: 20%;
-    border: none;
-    height: 40px;
-    outline: none;
-    border: none;
-    font-size: 1.8rem;
-    background: var(--BUTTON);
-    color: white;
-  }
-`
+`;

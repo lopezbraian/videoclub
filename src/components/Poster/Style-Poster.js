@@ -9,24 +9,28 @@ export const WrapperPoster = styled.div`
 `
 export const WrapperImage = styled.div`
   position: relative;
+  overflow:hidden;
+  border-radius:10px;
 `
 export const Img = styled.img`
   object-fit: cover;
   width: 150px;
   height: 250px;
-  transition: all .5s ease-in-out;
+  transition: transform .5s ease-in-out;
   &:hover {
-    transform:scale(1.1)
+    transform:scale(1.04)
   }
 `
 export const Vote = styled.div`
   position: absolute;
-  bottom:-25px;
+  top:-40px;
+  left:10px;
 `
 export const WrapperTitle = styled.div`
-  margin-top: 20px;
+  margin-top:10px;
+  position:relative;
+  padding-top: 30px;
   text-align: center;
-  padding: 10px;
 `
 const P = styled.p`
   color: ${props => props.modeDark ? 'white' : 'black'}

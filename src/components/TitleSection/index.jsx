@@ -1,18 +1,12 @@
-import React from 'react'
-import { WrapperSelector } from './Style-TitleSection'
-import { connect } from 'react-redux'
+import React, { useContext } from "react";
+import { WrapperSelector } from "./Style-TitleSection";
+import { UiContext } from "../../context";
 
-const TitleSection = ({ text, modeDark }) => {
+export default function TitleSection({ text }) {
+  const { modeDark } = useContext(UiContext);
   return (
     <WrapperSelector modeDark={modeDark}>
       <h2>{text}</h2>
     </WrapperSelector>
-  )
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    modeDark: state.ui.modeDark
-  }
-}
-export default connect(mapStateToProps, {})(TitleSection)

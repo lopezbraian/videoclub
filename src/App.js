@@ -1,19 +1,14 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import Routes from './route/App'
-import GlobalStyle from './styles/Style-Global'
+import React, { useContext } from "react";
+import Routes from "./route";
+import GlobalStyle from "./styles/Style-Global";
+import { UiContext } from "./context";
 
-const App = ({ modeDark }) => {
+export default function App() {
+  const { modeDark } = useContext(UiContext);
   return (
     <>
-      <GlobalStyle themeDark = {modeDark}/>
-      <Routes/>
+      <GlobalStyle themeDark={modeDark} />
+      <Routes />
     </>
-  )
+  );
 }
-const mapStateToProps = (state) => {
-  return {
-    modeDark: state.ui.modeDark
-  }
-}
-export default connect(mapStateToProps, {})(App)

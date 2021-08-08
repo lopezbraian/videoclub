@@ -1,8 +1,9 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React , {useContext} from 'react'
 import { Header } from './Header'
+import {UiContext} from '../context'
 
-const Layout = ({ children, modeDark }) => {
+export default function Layout({ children })  {
+  const {modeDark} = useContext(UiContext)
   return (
     <>
       <Header></Header>
@@ -16,10 +17,3 @@ const Layout = ({ children, modeDark }) => {
     </>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    modeDark: state.ui.modeDark
-  }
-}
-
-export default connect(mapStateToProps, null)(Layout)

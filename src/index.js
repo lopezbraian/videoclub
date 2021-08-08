@@ -1,11 +1,10 @@
-import React from 'react'
-import { render } from 'react-dom'
-import App from './App'
-import { Provider } from 'react-redux'
-import store from './redux'
-
+import React from "react";
+import { render } from "react-dom";
+import App from "./App";
+import MyThemeProvider from "./context";
 render(
-  <Provider store= {store}>
-    <App/>
-  </Provider>
-  , document.getElementById('app'))
+  <MyThemeProvider>
+    <App />
+  </MyThemeProvider>,
+  document.getElementById("app")
+);

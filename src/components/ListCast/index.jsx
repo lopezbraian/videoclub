@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import api from '../../api'
 import { Actor } from '../Actor'
 import { H2, WrapperActor, Wrapper } from './style'
-import { connect } from 'react-redux'
+import { UiContext } from '../../context'
 
-const ListCastPres = ({ type, id, modeDark }) => {
+export default function  ListCastPres  ({ type, id })  {
+  const {modeDark} = useContext(UiContext)
   const [data, setData] = useState([])
   useEffect(() => {
     async function getData () {
@@ -34,9 +35,3 @@ const ListCastPres = ({ type, id, modeDark }) => {
     </Wrapper>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    modeDark: state.ui.modeDark
-  }
-}
-export const ListCast = connect(mapStateToProps, {})(ListCastPres)

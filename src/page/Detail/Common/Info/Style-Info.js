@@ -85,7 +85,6 @@ export const WrapperResumen = styled.div`
     }
     p {
       padding: 0;
-      max-width: 400px;
       font-size: 1.6rem;
     }
   }

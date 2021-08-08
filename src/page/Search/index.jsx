@@ -1,75 +1,81 @@
-import React, { useEffect, useState } from 'react'
-import { Filter } from './Filter'
-import { useLocation } from 'react-router-dom'
-import api from '../../api'
-import { Results } from './Results'
-import { Search as InputSearch } from '../../components/Search'
-import { connect } from 'react-redux'
-import { CirculesProgress } from '../../components/Loading'
-import { WrapperSearch } from './style'
+import React, { useEffect, useState, useContext } from "react";
+import { Filter } from "./Filter";
+import { useLocation } from "react-router-dom";
+import api from "../../api";
+import { Results } from "./Results";
+import InputSearch from "../../components/Search";
+import { CirculesProgress } from "../../components/Loading";
+import { WrapperSearch } from "./style";
+import { UiContext } from "../../context";
 
-function useQuery () {
-  return new URLSearchParams(useLocation().search)
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
 }
 
-function useGetTypes (data = []) {
+function useGetTypes(data = []) {
   const types = {
     movie: 0,
     tv: 0,
-    person: 0
-  }
-  if (!data.results) return types
+    person: 0,
+  };
+  if (!data.results) return types;
   data.results.forEach((d) => {
-    if (d.media_type === 'movie') {
-      types.movie = types.movie + 1
-    } else if (d.media_type === 'tv') {
-      types.tv = types.tv + 1
-    } else if (d.media_type === 'person') {
-      types.person = types.person + 1
+    if (d.media_type === "movie") {
+      types.movie = types.movie + 1;
+    } else if (d.media_type === "tv") {
+      types.tv = types.tv + 1;
+    } else if (d.media_type === "person") {
+      types.person = types.person + 1;
     }
-  })
-  return types
+  });
+  return types;
 }
-export const SearchPres = ({ modeDark }) => {
-  const query = useQuery().get('query')
-  const [loading, setLoading] = useState(false)
-  const [data, setData] = useState([])
-  const types = useGetTypes(data)
-  const [selectType, setSelectType] = useState('tv')
+export default function SearchPres() {
+  const { modeDark } = useContext(UiContext);
+  const query = useQuery().get("query");
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const types = useGetTypes(data);
+  const [selectType, setSelectType] = useState("tv");
   useEffect(() => {
-    async function getData () {
-      if (query === '') return false
+    async function getData() {
+      if (query === "") return false;
       try {
-        setLoading(true)
-        const result = await api.querySearch(query)
-        console.log(result)
-        if (result) { setData(result) }
-        setLoading(false)
+        setLoading(true);
+        const result = await api.querySearch(query);
+        console.log(result);
+        if (result) {
+          setData(result);
+        }
+        setLoading(false);
       } catch {
-        return false
+        return false;
       }
     }
-    getData()
-  }, [query])
+    getData();
+  }, [query]);
   return (
     <>
-      {loading
-        ? <CirculesProgress/>
-        : (
+      {loading ? (
+        <CirculesProgress />
+      ) : (
         <>
           <WrapperSearch>
-            <InputSearch initialValue={query}/>
+            <InputSearch initialValue={query} />
           </WrapperSearch>
-          <Filter modeDark={modeDark} types={types} setSelectType={setSelectType} selectType={selectType}></Filter>
-          <Results modeDark={modeDark} data = {data} selectType={selectType}></Results>
+          <Filter
+            modeDark={modeDark}
+            types={types}
+            setSelectType={setSelectType}
+            selectType={selectType}
+          ></Filter>
+          <Results
+            modeDark={modeDark}
+            data={data}
+            selectType={selectType}
+          ></Results>
         </>
-          )}
+      )}
     </>
-  )
+  );
 }
-const mapStateToProps = state => {
-  return {
-    modeDark: state.ui.modeDark
-  }
-}
-export const Search = connect(mapStateToProps, {})(SearchPres)

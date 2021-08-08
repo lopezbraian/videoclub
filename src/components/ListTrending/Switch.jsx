@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import React, { useState , useContext } from 'react'
+import { UiContext } from '../../context'
 import { LiSelect, Ul, Li } from './Style-Switch'
-function SwitchPres ({ select, option, modeDark }) {
+
+export default function SwitchPres ({ select, option }) {
+  const {modeDark} = useContext(UiContext)
   const [activate, setActivate] = useState(0)
   const translate = (text) => {
     let result
@@ -47,9 +49,4 @@ function SwitchPres ({ select, option, modeDark }) {
     </Ul>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    modeDark: state.ui.modeDark
-  }
-}
-export const Switch = connect(mapStateToProps)(SwitchPres)
+

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useContext } from 'react'
 import api from '../../../api'
 import { useParams } from 'react-router-dom'
 import { Info } from './Info'
@@ -6,8 +6,10 @@ import { Poster } from '../Common/Poster'
 import { ListTvMovie } from '../../../components/ListTvMovie'
 import { H4, Wrapper, WrapperInfo, WrapperLeft, WrapperRigth } from './style'
 import { InfoItem } from './Info-item'
+import {UiContext} from '../../../context'
 
-export const PersonDetail = ({ modeDark }) => {
+export const PersonDetail = () => {
+  const {modeDark} = useContext(UiContext)
   const { id } = useParams()
   const [data, setData] = useState({})
   const [loaded, setLoaded] = useState(false)

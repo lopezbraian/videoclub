@@ -1,13 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef , useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import api from '../../../api'
-import { ListCast } from '../../../components/ListCast'
+import ListCast  from '../../../components/ListCast'
 import { CirculesProgress } from '../../../components/Loading'
 import { Hero } from '../Common/Hero'
 import { WrapperDetail } from './style'
 import Similar from '../../../components/Similar'
+import {UiContext} from '../../../context'
 
-export const Detail = ({ modeDark }) => {
+export const TvDetail = () => {
+  const {modeDark} = useContext(UiContext)
   const { id } = useParams()
   const [loaded, setLoaded] = useState(false)
   const [data, setData] = useState({})

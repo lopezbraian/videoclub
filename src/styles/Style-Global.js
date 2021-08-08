@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   :root {
     /* THEME LIGHT */
@@ -21,13 +21,33 @@ const GlobalStyle = createGlobalStyle`
     font-size : 62.5%;
   }
 
-
+  .button-app {
+      border-radius:0;
+      width: 20%;
+      border: none;
+      height: 40px;
+      outline: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor:pointer;
+      background: var(--BUTTON);
+      color: white;
+    
+  
+  }
+  .button-appa:active{
+    transform:scale(1.1);
+  }
   body {
-    background: ${props => props.themeDark ? 'var(--BACKGROUND_THEME_DARK)' : 'var(-BACKGROUND_THEME_WHITE)'} ;
+    background: ${(props) =>
+      props.themeDark
+        ? "var(--BACKGROUND_THEME_DARK)"
+        : "var(-BACKGROUND_THEME_WHITE)"} ;
     width: 100%;
     height:100%;
     margin:0;
     padding:0;
+    transition: background .3s ease-in;
   }
   .wrapper-padding {
     padding: 0 20px 0 20px;
@@ -35,5 +55,5 @@ const GlobalStyle = createGlobalStyle`
   #app {
     height: 100%;
   }
-`
-export default GlobalStyle
+`;
+export default GlobalStyle;
