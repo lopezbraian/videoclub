@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export const UiContext = React.createContext(false);
 
 export default function MyThemeProvider({ children }) {
-  const [modeDark, setModeDark] = useState(true);
+  const [modeDark, setModeDark] = useState(false);
 
   const changeTheme = () => {
     setModeDark(!modeDark);
