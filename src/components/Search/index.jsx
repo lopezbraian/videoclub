@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { WrapperForm } from "./style";
 import { UiContext } from "../../context";
-
+import {SearchRounded} from "@material-ui/icons"
 export default function SearchPres({ initialValue }) {
   const { modeDark } = useContext(UiContext);
   const [query, setQuery] = useState(initialValue);
@@ -24,7 +24,7 @@ export default function SearchPres({ initialValue }) {
         placeholder="Buscar..."
       ></input>
       <button className="button-app" onClick={search}>
-        Buscar
+        <SearchRounded fontSize="large"/>
       </button>
     </WrapperForm>
   );

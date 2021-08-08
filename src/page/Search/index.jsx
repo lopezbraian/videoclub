@@ -11,7 +11,17 @@ import { UiContext } from "../../context";
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-
+function maxTypes(types) {
+  let maxType;
+  let max = 0;
+  Object.keys(types).map((v) => {
+    if (types[v] > max) {
+      maxType = v;
+      max = types[v];
+    }
+  });
+  return maxType;
+}
 function useGetTypes(data = []) {
   const types = {
     movie: 0,
@@ -21,11 +31,11 @@ function useGetTypes(data = []) {
   if (!data.results) return types;
   data.results.forEach((d) => {
     if (d.media_type === "movie") {
-      types.movie = types.movie + 1;
+      types.movie++;
     } else if (d.media_type === "tv") {
-      types.tv = types.tv + 1;
+      types.tv++;
     } else if (d.media_type === "person") {
-      types.person = types.person + 1;
+      types.person++;
     }
   });
   return types;
@@ -35,17 +45,20 @@ export default function SearchPres() {
   const query = useQuery().get("query");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const types = useGetTypes(data);
-  const [selectType, setSelectType] = useState("tv");
+  const [selectType, setSelectType] = useState("")
+  const [types , setTypes] = useState({movie:0 , tv:0 , person:0})
+
   useEffect(() => {
     async function getData() {
       if (query === "") return false;
       try {
         setLoading(true);
         const result = await api.querySearch(query);
-        console.log(result);
         if (result) {
+          console.log(result)
           setData(result);
+          setTypes(useGetTypes(result))
+          //selecciona el tipo que mas resultado tiene
         }
         setLoading(false);
       } catch {
@@ -54,6 +67,12 @@ export default function SearchPres() {
     }
     getData();
   }, [query]);
+
+  useEffect(() => {
+    setSelectType(maxTypes(types))
+    
+  }, [types])
+
   return (
     <>
       {loading ? (

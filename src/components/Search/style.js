@@ -11,6 +11,8 @@ export const WrapperForm = styled.form`
   justify-content: center;
   border-radius: 5px;
   overflow: hidden;
+  border: ${(props) =>
+    props.modeDark ? ".5px solid transparent" : ".5px solid black"};
   input {
     width: 80%;
     border: none;

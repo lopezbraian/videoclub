@@ -28,12 +28,9 @@ const GlobalStyle = createGlobalStyle`
       height: 40px;
       outline: none;
       border: none;
-      font-size: 1.8rem;
       cursor:pointer;
       background: var(--BUTTON);
-      color: white;
-    
-  
+      color: white;  
   }
   .button-appa:active{
     transform:scale(1.1);
