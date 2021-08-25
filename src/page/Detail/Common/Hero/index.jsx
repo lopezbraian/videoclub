@@ -15,7 +15,6 @@ export const Hero = ({ data, modeDark, type, refElement }) => {
   useEffect(() => {
     refElement.current.addEventListener('click', closeVideo)
     setIdVideo(data.id)
-
     return () => window.removeEventListener('click', closeVideo)
   }, [data.id])
 

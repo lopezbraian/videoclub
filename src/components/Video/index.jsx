@@ -10,7 +10,6 @@ export const Video = ({ idVideo, closeVideo }) => {
       autoplay: 1
     }
   }
-
   const onReady = (event) => {
     event.target.pauseVideo()
   }

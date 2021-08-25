@@ -35,9 +35,7 @@ export const Info = ({ idVideo, title, overview, genres, releaseDate, vote, open
         </p>
       </WrapperResumen>)}
 
-      <WrapperProducer>
-
-      </WrapperProducer>
+      <WrapperProducer/>
 
     </Wrapper>
   )

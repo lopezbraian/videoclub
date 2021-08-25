@@ -7,7 +7,6 @@ export const ProvWatch = ({ id, type }) => {
   const [provWatch, setProvWatch] = useState({
     flatrate: []
   })
-
   useEffect(() => {
     async function getData () {
       let provWatchRes

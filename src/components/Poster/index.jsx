@@ -31,9 +31,8 @@ export default function PosterPres({ data, type }) {
           <Vote vote={data.vote_average} />
         </VoteStyle>
         <Name modeDark={modeDark}>{data.title || data.name}</Name>
-        {type === "tv" && <Date modeDark={modeDark}>Primer episodio</Date>}
         <Date modeDark={modeDark}>
-          {data.release_date || data.first_air_date}
+          {data.release_date || <> {data.first_air_date} <span style={{fontWeight:"bold"}}>{' (1 Ep)'}</span> </>}
         </Date>
       </WrapperTitle>
     </WrapperPoster>

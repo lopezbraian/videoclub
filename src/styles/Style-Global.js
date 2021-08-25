@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     font-size : 62.5%;
   }
 
+
   .button-app {
       border-radius:0;
       width: 20%;

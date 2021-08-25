@@ -13,6 +13,7 @@ export const ListMovies = () => {
         const res = await api.queryMoviePopular()
         if (!res) return false
         setData(res.results)
+        console.log(res)
         setLoaded(true)
       } catch (error) {
 

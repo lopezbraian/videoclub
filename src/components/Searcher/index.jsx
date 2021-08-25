@@ -43,10 +43,10 @@ export const Searcher = () => {
           ""
         )}
       </div>
-      <div>
-        <h3 className="searcher__h3">Bienvenidos</h3>
-        <h3 className="searcher__h3">
-          Millones de películas, programas de televisión. Explora ahora.
+      <div className="searcher__text">
+        <h2 className="searcher__text__h2">Bienvenidos</h2>
+        <h3 className="searcher__text__h3">
+          Encontrá la película o serie que querés ver.
         </h3>
       </div>
       <Search initialValue={""} />

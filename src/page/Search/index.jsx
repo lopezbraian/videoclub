@@ -55,7 +55,6 @@ export default function SearchPres() {
         setLoading(true);
         const result = await api.querySearch(query);
         if (result) {
-          console.log(result)
           setData(result);
           setTypes(useGetTypes(result))
           //selecciona el tipo que mas resultado tiene

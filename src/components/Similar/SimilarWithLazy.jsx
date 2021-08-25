@@ -29,7 +29,6 @@ export default function Similar ({ type, id, modeDark }) {
     return null
   }
 
-  console.log(type, id)
   return (
     <>
       <H2 modeDark = {modeDark}>Titulos Similares</H2>
@@ -38,7 +37,7 @@ export default function Similar ({ type, id, modeDark }) {
             <WrapperList data={data} type={type}></WrapperList>
             )
           : (
-              <PosterSkeleton>  </PosterSkeleton>
+              <PosterSkeleton/>
             )}
     </>
 

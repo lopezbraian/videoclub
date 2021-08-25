@@ -8,6 +8,27 @@
   padding: 20px;
   margin-bottom: 20px;
   position: relative;
+  &__text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin:0 auto ;
+    h2 , h3 {
+      margin: 0;
+      color: white;
+      text-align: left;
+    }
+    &__h2 {
+      align-self: flex-start;
+      font-size: 4.5rem;
+      width: 200px;
+    }
+    &__h3 {
+      font-size: 3rem;
+      width:auto;
+    }
+  }
   &__image {
     z-index: -1;
     position: absolute;
@@ -33,11 +54,7 @@
       object-fit: cover;
     }
   }
-  &__h3 {
-    margin: 0;
-    color: white;
-    font-size: 3rem;
-  }
+  
 }
 
 @media screen and (min-width:1280px) {

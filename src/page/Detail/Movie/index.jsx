@@ -7,6 +7,7 @@ import { CirculesProgress } from "../../../components/Loading";
 import { WrapperDetail } from "./style";
 import Similar from "../../../components/Similar";
 import { UiContext } from "../../../context";
+import Review from "../Common/Review";
 
 export const MovieDetail = () => {
   const { modeDark } = useContext(UiContext);
@@ -21,6 +22,7 @@ export const MovieDetail = () => {
         const res = await api.getDatailMovie(id);
         if (res) {
           setData(res);
+          console.log(res)
           setLoaded(true);
         } else {
           window.location.replace("/404");
