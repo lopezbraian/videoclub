@@ -9,7 +9,7 @@ export const Item = ({ data, type, modeDark }) => {
   return (
     <Link style={{ textDecoration: 'none' }} to={type === 'movie' ? `/movie/${data.id}` : (`/tv/${data.id}`)}>
       <Wrapper>
-          <img src={url} heigth="250px" width="250px"></img>
+          <img src={url} height="250px" width="250px"/>
           <WrapperInfo modeDark ={modeDark} >
             <p>{data.title || data.name}</p>
           </WrapperInfo>

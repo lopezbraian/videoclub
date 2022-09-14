@@ -34,20 +34,10 @@ export const Searcher = () => {
     <div className="searcher">
       <div className="searcher__image">
         {loaded ? (
-          <img
-            width="100%"
-            heigth="100%"
-            src={!url ? imageSearcher : url}
-          ></img>
+          <img width="100%" height="100%" src={!url ? imageSearcher : url} />
         ) : (
           ""
         )}
-      </div>
-      <div className="searcher__text">
-        <h2 className="searcher__text__h2">Bienvenidos</h2>
-        <h3 className="searcher__text__h3">
-          Encontrá la película o serie que querés ver.
-        </h3>
       </div>
       <Search initialValue={""} />
     </div>

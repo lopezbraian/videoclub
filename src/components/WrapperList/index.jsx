@@ -7,11 +7,7 @@ export const WrapperList = ({ data = [], type }) => {
     <WrapPoster>
       {data.map((data, index) => {
         return (
-          <Poster
-            key={index}
-            data={data}
-            type={data.media_type || type}
-          ></Poster>
+          <Poster key={index} data={data} type={data.media_type || type} />
         );
       })}
     </WrapPoster>

@@ -3,27 +3,27 @@ import styled from "styled-components";
 export const WrapperForm = styled.form`
   position: relative;
   min-width: 320px;
-  max-width: 400px;
-  height: 40px;
+  max-width: 700px;
+  height: 60px;
   width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   border-radius: 5px;
   overflow: hidden;
-  border: ${(props) =>
-    props.modeDark ? ".5px solid transparent" : ".5px solid black"};
   input {
     width: 80%;
     border: none;
     outline: none;
-    height: 40px;
+    height: 100%;
     padding-left: 10px;
-    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     font-size: 2.5rem;
   }
 
   input::placeholder {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    font-style: italic;
   }
 `;

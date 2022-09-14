@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   :root {
     /* THEME LIGHT */
-    --BACKGROUND_THEME_WHITE : #E1DFDE;
+    --BACKGROUND_THEME_WHITE : #d3d3d3;
     --PURPLE : #794c74;
     --SUNSET: #c56183;
     --YELLOW: #fadcaa;
@@ -26,12 +26,18 @@ const GlobalStyle = createGlobalStyle`
       border-radius:0;
       width: 20%;
       border: none;
-      height: 40px;
+      height: 100%;
       outline: none;
       border: none;
       cursor:pointer;
       background: var(--BUTTON);
-      color: white;  
+      color: white; 
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+  }
+  .button-app > svg {
+    width: 30px;
+    height: 30px;
   }
   .button-appa:active{
     transform:scale(1.1);
@@ -49,9 +55,33 @@ const GlobalStyle = createGlobalStyle`
   }
   .wrapper-padding {
     padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   #app {
     height: 100%;
+  }
+
+  div::-webkit-scrollbar {
+    width: 8px; /* Tamaño del scroll en vertical */
+    height: 8px; /* Tamaño del scroll en horizontal */
+    // display: none; /* Ocultar scroll */
+  }
+  div::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+
+  /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+  div::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Cambiamos el fondo cuando esté en active */
+  div::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
   }
 `;
 export default GlobalStyle;

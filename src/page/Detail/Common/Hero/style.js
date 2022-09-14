@@ -10,6 +10,10 @@ export const WrapperPoster = styled.div`
   color:white;
   position:relative;
   z-index:1;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  overflow: hidden;
   
   @media screen and (min-width:720px ) {
     display: flex;

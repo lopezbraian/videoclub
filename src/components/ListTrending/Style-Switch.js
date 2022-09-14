@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const Ul = styled.ul`
   margin: 0;
-  border:.3px solid black;
   border-radius:30px;
   padding: 0;
   overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 `
 export const Li = styled.li`
   cursor: pointer;  

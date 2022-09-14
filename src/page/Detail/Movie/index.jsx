@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef , useContext } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Hero } from "../Common/Hero";
 import api from "../../../api/index";
@@ -22,7 +22,7 @@ export const MovieDetail = () => {
         const res = await api.getDatailMovie(id);
         if (res) {
           setData(res);
-          console.log(res)
+          console.log(res);
           setLoaded(true);
         } else {
           window.location.replace("/404");
@@ -37,15 +37,10 @@ export const MovieDetail = () => {
   return (
     <WrapperDetail ref={ref}>
       {!loaded ? (
-        <CirculesProgress />
+        <></>
       ) : (
         <>
-          <Hero
-            refElement={ref}
-            data={data}
-            modeDark={modeDark}
-            type="movie"
-          ></Hero>
+          <Hero refElement={ref} data={data} modeDark={modeDark} type="movie" />
           <ListCast type={"movie"} id={data.id} />
           <Similar type="movie" id={data.id} modeDark={modeDark}></Similar>
         </>
